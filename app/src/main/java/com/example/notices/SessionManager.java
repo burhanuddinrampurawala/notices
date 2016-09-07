@@ -22,6 +22,7 @@ public class SessionManager {
     private static final String PREF_NAME = "CollegeLogin";
 
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    private static final String KEY_IS_ADMIN = "isadmin";
 
     public SessionManager(Context context) {
         this._context = context;
@@ -37,6 +38,10 @@ public class SessionManager {
         editor.commit();
 
         Log.d(TAG, "User login session modified!");
+    }
+    public  void isadmin(boolean admin){
+        editor.putBoolean(KEY_IS_ADMIN, admin);
+        editor.commit();
     }
 
     public boolean isLoggedIn(){

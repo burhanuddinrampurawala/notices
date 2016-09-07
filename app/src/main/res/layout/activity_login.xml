@@ -68,13 +68,5 @@
         android:textStyle="bold"
         android:clickable="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/errorText"
-        android:textColor="#f90505"
-        android:layout_below="@+id/adminButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -31,11 +31,13 @@ public class login extends AppCompatActivity {
     protected String enteredPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
+    private SQLiteHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        db = new SQLiteHandler(getApplicationContext());
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         session = new SessionManager(getApplicationContext());
@@ -53,9 +55,7 @@ public class login extends AppCompatActivity {
 
                                                    checkLogin(enteredUsername, enteredPassword);
 
-
-
-                                           }
+    }
                                        }
         );
 
@@ -91,7 +91,20 @@ public class login extends AppCompatActivity {
                         // user successfully logged in
                         // Create login session
                         session.setLogin(true);
+                        session.isadmin(false);
 
+                        String uid = jObj.getString("uid");
+                        JSONObject user = jObj.getJSONObject("user");
+                        String name = user.getString("name");
+                        String email = user.getString("email");
+                        String created_at = user
+                                .getString("created_at");
+                        String year = user.getString("year");
+                        String branch = user.getString("branch");
+                        String rollno = user.getString("rollno");
+
+                        // Inserting row in users table
+                        db.addUser(uid, name, year, branch, rollno, email, created_at);
 
                         Intent intent = new Intent(getApplicationContext(),
                                 NoticeList.class);
