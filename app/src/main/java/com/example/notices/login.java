@@ -41,7 +41,6 @@ public class login extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         session = new SessionManager(getApplicationContext());
-        final TextView error = (TextView) findViewById(R.id.errorText);
         username = (EditText)findViewById(R.id.usernameText);
         password = (EditText)findViewById(R.id.passwordText);
         Button loginButton = (Button)findViewById(R.id.studentButton);
