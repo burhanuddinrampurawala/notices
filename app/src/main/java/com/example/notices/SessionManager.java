@@ -29,6 +29,13 @@ public class SessionManager {
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
     }
+    public void setAdmin(boolean isAdmin) {
+
+        editor.putBoolean(KEY_IS_ADMIN, isAdmin);
+        editor.commit();
+
+        Log.d(TAG, "User login session modified!");
+    }
 
     public void setLogin(boolean isLoggedIn) {
 
@@ -39,9 +46,8 @@ public class SessionManager {
 
         Log.d(TAG, "User login session modified!");
     }
-    public  void isadmin(boolean admin){
-        editor.putBoolean(KEY_IS_ADMIN, admin);
-        editor.commit();
+    public  boolean isadmin(){
+        return pref.getBoolean(KEY_IS_ADMIN, false);
     }
 
     public boolean isLoggedIn(){

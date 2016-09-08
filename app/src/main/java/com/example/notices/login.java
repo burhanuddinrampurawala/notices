@@ -52,7 +52,7 @@ public class login extends AppCompatActivity {
                                                enteredUsername = username.getText().toString();
                                                enteredPassword = password.getText().toString();
 
-                                                   checkLogin(enteredUsername, enteredPassword);
+                                                   checkStudentLogin(enteredUsername, enteredPassword);
 
     }
                                        }
@@ -65,8 +65,20 @@ public class login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button adminButton = (Button) findViewById(R.id.adminButton);
+        adminButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        enteredUsername = username.getText().toString();
+                        enteredPassword = password.getText().toString();
+
+                        checkAdminLogin(enteredUsername, enteredPassword);
+                    }
+                }
+        );
     }
-    private void checkLogin(final String email, final String password) {
+    private void checkStudentLogin(final String email, final String password) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
@@ -74,7 +86,7 @@ public class login extends AppCompatActivity {
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+                AppConfig.URL_STUDENT_LOGIN, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -90,7 +102,7 @@ public class login extends AppCompatActivity {
                         // user successfully logged in
                         // Create login session
                         session.setLogin(true);
-                        session.isadmin(false);
+                        session.setAdmin(false);
 
                         String uid = jObj.getString("uid");
                         JSONObject user = jObj.getJSONObject("user");
@@ -104,6 +116,75 @@ public class login extends AppCompatActivity {
 
                         // Inserting row in users table
                         db.addUser(uid, name, year, branch, rollno, email, created_at);
+
+                        Intent intent = new Intent(getApplicationContext(),
+                                NoticeList.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // Error in login. Get the error message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Login Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", email);
+                params.put("password", password);
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance(getApplicationContext()).addToRequestQueue(strReq, tag_string_req);
+    }
+    private void checkAdminLogin(final String email, final String password) {
+        // Tag used to cancel the request
+        String tag_string_req = "req_login";
+
+        pDialog.setMessage("Logging in ...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_ADMIN_LOGIN, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Login Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    // Check for error node in json
+                    if (!error) {
+                        // user successfully logged in
+                        // Create login session
+                        session.setLogin(true);
+                        session.setAdmin(true);
 
                         Intent intent = new Intent(getApplicationContext(),
                                 NoticeList.class);

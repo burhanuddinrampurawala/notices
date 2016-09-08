@@ -16,7 +16,7 @@ public class splash extends AppCompatActivity {
                 try {
                     sleep(2000);
                     SessionManager s= new SessionManager(getApplicationContext());
-                    if (s.isLoggedIn()){
+                   if (s.isLoggedIn()||s.isadmin()){
                         Intent i = new Intent(getApplicationContext(), NoticeList.class);
                         startActivity(i);
                     }
