@@ -3,10 +3,10 @@ package com.example.notices;
 
 public class AppConfig {
     // Server student login url
-    public static String URL_STUDENT_LOGIN = "http://192.168.0.5:80/notices/login.php";
+    public static String URL_STUDENT_LOGIN = "http://your ip address/notices/login.php";
 
     // Server user register url
-    public static String URL_REGISTER = "http://192.168.0.5:80/notices/register.php";
+    public static String URL_REGISTER = "http://your ip address/notices/register.php";
 
     // Server admin login url
     public static String URL_ADMIN_LOGIN = "";
