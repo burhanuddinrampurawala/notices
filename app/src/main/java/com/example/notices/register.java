@@ -104,6 +104,9 @@ public class register extends AppCompatActivity {
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
                         // User successfully stored in MySQL
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
                         Intent i = new Intent(getApplicationContext(),login.class);
                         startActivity(i);
                         finish();
