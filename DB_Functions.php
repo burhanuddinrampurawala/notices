@@ -1,9 +1,5 @@
 <?php
  
-/**
- * @author Ravi Tamada
- * @link http://www.androidhive.info/2012/01/android-login-and-registration-with-php-mysql-and-sqlite/ Complete tutorial
- */
  
 class DB_Functions {
  
@@ -31,12 +27,11 @@ class DB_Functions {
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
- 
+        
        $stmt = $this->conn->prepare("INSERT INTO studentdata(uniqueid, name, year, branch, rollno,  email, password, salt, createdat) VALUES(?, ?, ?, ?, ?, ?, ?, ?, NOW())");
         $stmt->bind_param("ssssssss", $uuid, $name, $year, $branch, $rollno, $email, $encrypted_password, $salt);
         $result = $stmt->execute();
         $stmt->close();
- 
         // check for successful store
         if ($result) {
 // get user details
@@ -45,6 +40,7 @@ class DB_Functions {
             $stmt->execute();
             $user = $stmt->get_result()->fetch_assoc();
             $stmt->close();
+            return true;
         }
          else {
             return false;

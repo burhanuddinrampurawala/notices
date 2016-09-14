@@ -20,7 +20,7 @@ try{
                 $response["uid"] = $user["uniqueid"];
                 $response["user"]["name"] = $user["name"];
                 $response["user"]["year"] = $user["year"];
-                $response["user"]["class"] = $user["class"];
+                $response["user"]["branch"] = $user["branch"];
                 $response["user"]["rollno"] = $user["rollno"];
                 $response["user"]["email"] = $user["email"];
                 $response["user"]["created_at"] = $user["createdat"];
@@ -41,7 +41,6 @@ try{
 }catch(Exception $e){
     $response["error"] = TRUE;
     $response["error_msg"] = var_dump($e->getMessage());
-
     echo json_encode($response);
 }
 ?>
