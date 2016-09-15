@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2016 at 03:04 PM
+-- Generation Time: Sep 15, 2016 at 11:42 AM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -19,6 +19,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `notices`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admindata`
+--
+
+CREATE TABLE `admindata` (
+  `uniqueid` varchar(100) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `branch` varchar(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(80) NOT NULL,
+  `salt` varchar(10) NOT NULL,
+  `createdat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedat` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -50,6 +67,12 @@ INSERT INTO `studentdata` (`id`, `uniqueid`, `name`, `year`, `branch`, `rollno`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admindata`
+--
+ALTER TABLE `admindata`
+  ADD UNIQUE KEY `uniqueid` (`uniqueid`);
 
 --
 -- Indexes for table `studentdata`

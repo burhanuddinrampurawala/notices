@@ -22,7 +22,7 @@ class DB_Functions {
      * Storing new user
      * returns user details
      */
-    public function storeUser($name, $year, $branch, $rollno, $email, $password) {
+    public function storeStudent($name, $year, $branch, $rollno, $email, $password) {
         $uuid = uniqid('', true);
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
@@ -51,9 +51,33 @@ class DB_Functions {
     /**
      * Get user by email and password
      */
-    public function getUserByEmailAndPassword($email, $password) {
+    public function getStudent($email, $password) {
  
         $stmt = $this->conn->prepare("SELECT * FROM studentdata WHERE email = ?");
+ 
+        $stmt->bind_param("s", $email);
+ 
+        if ($stmt->execute()) {
+            $user = $stmt->get_result()->fetch_assoc();
+            $stmt->close();
+ 
+            // verifying user password
+            $salt = $user['salt'];
+            $encrypted_password = $user['password'];
+            $hash = $this->checkhashSSHA($salt, $password);
+            // check for password equality
+            if ($encrypted_password == $hash) {
+                // user authentication details are correct
+                return $user;
+            }
+        } else {
+            return NULL;
+        }
+    }
+
+    public function getAdmin($email, $password) {
+ 
+        $stmt = $this->conn->prepare("SELECT * FROM admindata WHERE email = ?");
  
         $stmt->bind_param("s", $email);
  
@@ -78,7 +102,7 @@ class DB_Functions {
     /**
      * Check user is existed or not
      */
-    public function isUserExisted($email) {
+    public function isStudentExisted($email) {
         $stmt = $this->conn->prepare("SELECT email from studentdata WHERE email = ?");
  
         $stmt->bind_param("s", $email);
