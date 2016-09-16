@@ -11,15 +11,6 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
             
     // json response array
     $response = array("error" => FALSE);
-    $name = $_POST['name'];
-    $branch = $_POST['branch'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $testfile = fopen("testfile.txt", 'w');
-      fwrite($testfile, $name);
-      fwrite($testfile, $branch);
-      fwrite($testfile, $email);
-      fwrite($testfile, $password);
      
     if (isset($_POST['name']) && isset($_POST['branch']) && isset($_POST['email']) && isset($_POST['password'])) 
     {
@@ -64,7 +55,7 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
             // check for successful store
                 if ($result) {
     // get user details
-                    $stmt = $this->conn->prepare("SELECT * FROM admindata WHERE email = ?");
+                    $stmt = $conn->prepare("SELECT * FROM admindata WHERE email = ?");
                     $stmt->bind_param("s", $email);
                     $stmt->execute();
                     $user = $stmt->get_result()->fetch_assoc();
