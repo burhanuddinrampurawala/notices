@@ -147,6 +147,27 @@ class DB_Functions {
  
         return $hash;
     }
+    public function addnotice($title, $description) {
+        
+        $uuid = uniqid('', true);
+        $stmt = $this->conn->prepare("INSERT INTO noticedata(uniqueid, title, description, createdat) VALUES(?, ?, ?, NOW())");
+        $stmt->bind_param("sss", $uuid, $title, $description);
+        $result = $stmt->execute();
+        $stmt->close();
+        // check for successful store
+        if ($result) {
+// get user details
+              $stmt = $this->conn->prepare("SELECT * FROM noticedata WHERE title = ?");
+            $stmt->bind_param("s", $title);
+            $stmt->execute();
+            $user = $stmt->get_result()->fetch_assoc();
+            $stmt->close();
+            return true;
+        }
+         else {
+            return false;
+        }
+    }
  
 }
  
