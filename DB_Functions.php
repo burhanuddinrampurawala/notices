@@ -170,27 +170,16 @@
     }
      function editnotice($uid, $title, $description)
     {
-
-     $current_time = date('Y-m-d H:i:s');
-     // $qry = "UPDATE noticedata SET title =".$title.", description =".$description.", updatedat =".$current_time.", WHERE uniqueid =".$uid;
-     // echo "UPDATE noticedata SET (title, description, updatedat) VALUES (?, ?, NOW())";
-     $qury = "UPDATE `noticedata` SET `title`=".$title.",`description`=".$description.",`updatedat`=".$current_time." WHERE uniqueid=".$uid;
+     $time = date("Y-m-d H:i:s");
+     $qury = "UPDATE noticedata SET title= '$title',description='$description',updatedat =NOW() WHERE uniqueid='$uid'";
+     echo $qury;
      $stmt = $this->conn->query($qury);
-        	// $stmt->bind_param("ssss", $uid, $title, $description, $current_time);
-        	// $result = $stmt->execute();
-         //    $stmt->close();
 
      if ($stmt) {
-    // get user details
-      $stmt = $this->conn->prepare("SELECT * FROM noticedata WHERE title = ?");
-      $stmt->bind_param("s", $title);
-      $stmt->execute();
-      $user = $stmt->get_result()->fetch_assoc();
-      $stmt->close();
       return true;
     }
     else {
-        echo "Error deleting record: " . $this->conn->error ;
+        echo  $this->conn->error ;
     }
     }
      function deletenotice($uid)
@@ -199,11 +188,9 @@
         $sql = "DELETE FROM noticedata WHERE uniqueid='$uid'";
 
         if ($this->conn->query($sql) === TRUE) {
-        echo "Record deleted successfully";
         return true;     
      } 
      else {
-        echo "Error deleting record: " . $this->conn->error;
         return false;
     }
 
