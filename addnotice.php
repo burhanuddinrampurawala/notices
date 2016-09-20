@@ -7,11 +7,6 @@ $db = new DB_Functions();
             
     // json response array
     $response = array("error" => FALSE);
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $testfile = fopen("testfile.txt", 'w');
-      fwrite($testfile, $title);
-      fwrite($testfile, $description);
      
     if (isset($_POST['title']) && isset($_POST['description'])) {
      

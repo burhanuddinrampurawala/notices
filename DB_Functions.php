@@ -170,25 +170,19 @@
     }
      function editnotice($uid, $title, $description)
     {
-     $time = date("Y-m-d H:i:s");
      $qury = "UPDATE noticedata SET title= '$title',description='$description',updatedat =NOW() WHERE uniqueid='$uid'";
-     echo $qury;
-     $stmt = $this->conn->query($qury);
-
-     if ($stmt) {
+     if ($this->conn->query($qury)) {
       return true;
     }
     else {
-        echo  $this->conn->error ;
+        return false ;
     }
     }
      function deletenotice($uid)
     {
-
         $sql = "DELETE FROM noticedata WHERE uniqueid='$uid'";
-
-        if ($this->conn->query($sql) === TRUE) {
-        return true;     
+        if ($this->conn->query($sql)) {
+            return true;     
      } 
      else {
         return false;

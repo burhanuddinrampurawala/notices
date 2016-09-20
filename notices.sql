@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2016 at 08:42 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Generation Time: Sep 20, 2016 at 02:41 PM
+-- Server version: 5.7.11
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -42,7 +42,7 @@ CREATE TABLE `admindata` (
 --
 
 INSERT INTO `admindata` (`uniqueid`, `name`, `branch`, `email`, `password`, `salt`, `createdat`, `updatedat`) VALUES
-('57db85496cfd35.37282920', 'ankit', 'it', 'ankschamp.ac@gmail.com', 'y0lZ2/T4xVWUJIf+HSFHnFbB7xBkYzA0MjFkOTc1', 'dc0421d975', '2016-09-16 05:38:17', NULL);
+('57db85496cfd35.37282920', 'ankit', 'it', 'ankschamp.ac@gmail.com', 'y0lZ2/T4xVWUJIf+HSFHnFbB7xBkYzA0MjFkOTc1', 'dc0421d975', '2016-09-16 00:08:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,9 @@ CREATE TABLE `noticedata` (
 --
 
 INSERT INTO `noticedata` (`uniqueid`, `title`, `description`, `createdat`, `updatedat`) VALUES
-('57db92f7aa6866.20059400', 'hello world', 'fbasbfuiashfoiafgaiusbaiufguaisfauifgaoigrwqiugqw8gfrwyufgafgauiysgfyasgfhasgfuyagfdyaewsiugishrohritr4ti0ihfhkfohjgfiu90trhfuifdhuidf', '2016-09-16 06:36:39', NULL);
+('57db92f7aa6866.20059400', 'hello wrold part 2', 'some description', '2016-09-16 01:06:39', '2016-09-19 15:29:57'),
+('57e144a1ee55b0.15823341', 'sum up', 'adds it up', '2016-09-20 14:16:02', NULL),
+('57dff0bd654ec6.56307568', 'title', 'description', '2016-09-19 14:05:49', '2016-09-19 15:15:58');
 
 -- --------------------------------------------------------
 
@@ -90,8 +92,7 @@ CREATE TABLE `studentdata` (
 --
 
 INSERT INTO `studentdata` (`id`, `uniqueid`, `name`, `year`, `branch`, `rollno`, `email`, `password`, `salt`, `createdat`, `updatedat`) VALUES
-(10, '57d9666ab46589.06634229', 'burhanuddin rampurawala', 'SE', 'CMPN-2', '76', 'burhanuddinzrampurawala@gmail.com', 'MTuNH2GSEGXPzP0I3U1Nk5qQZGlmM2RjOWUyNGVk', 'f3dc9e24ed', '2016-09-14 15:02:02', NULL),
-(11, '57db82f34fcc95.95079272', 'Ankit', 'Third', 'IT', '5', 'ankschamp.ac@gmail.com', 'RWbTRiXpJMwr5A8YJ42jcLBtcPdkZDIwYmEyZmQ5', 'dd20ba2fd9', '2016-09-16 05:28:19', NULL);
+(10, '57d9666ab46589.06634229', 'burhanuddin rampurawala', 'SE', 'CMPN-2', '76', 'burhanuddinzrampurawala@gmail.com', 'MTuNH2GSEGXPzP0I3U1Nk5qQZGlmM2RjOWUyNGVk', 'f3dc9e24ed', '2016-09-14 15:02:02', NULL);
 
 --
 -- Indexes for dumped tables
@@ -107,6 +108,7 @@ ALTER TABLE `admindata`
 -- Indexes for table `noticedata`
 --
 ALTER TABLE `noticedata`
+  ADD PRIMARY KEY (`uniqueid`),
   ADD UNIQUE KEY `uniqueid` (`uniqueid`);
 
 --
@@ -124,7 +126,7 @@ ALTER TABLE `studentdata`
 -- AUTO_INCREMENT for table `studentdata`
 --
 ALTER TABLE `studentdata`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

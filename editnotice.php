@@ -3,17 +3,7 @@ require_once 'DB_Functions.php';
 $db = new DB_Functions();
 try{
     // json response array
-    $response = array("error" => FALSE);
-
-    $uid = $_POST['uid'];
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $testfile = fopen("testfile.txt", 'w');
-      fwrite($testfile, $uid);
-      fwrite($testfile, $title);
-      fwrite($testfile, $description);
-
-     
+    $response = array("error" => FALSE); 
    if (isset($_POST['uid']) && isset($_POST['title']) && isset($_POST['description']) ) {
      
         // receiving the post params
@@ -27,9 +17,7 @@ try{
         if ($user != false) {
             // use is found
             $response["error"] = FALSE;
-                $response["uid"] = $user["uniqueid"];
-                $response["user"]["title"] = $user["title"];
-                $response["user"]["description"] = $user["description"];
+                $response["error_msg"] = "notice edited" ;
             echo json_encode($response);
         } else {
             // user is not found with the credentials

@@ -4,11 +4,6 @@ $db = new DB_Functions();
 try{
     // json response array
     $response = array("error" => FALSE);
-
-    $uid = $_POST['uid'];
-    $testfile = fopen("testfile.txt", 'w');
-      fwrite($testfile, $uid);
-
      
    if (isset($_POST['uid']))  {
      
@@ -20,7 +15,7 @@ try{
         if ($user != false) {
             // use is found
             $response["error"] = FALSE;
-                $response["error_msg"] = $user["notice deleted"];
+                $response["error_msg"] = "notice deleted";
             echo json_encode($response);
         } 
             else {
@@ -33,7 +28,7 @@ try{
     } else {
         // required post params is missing
         $response["error"] = TRUE;
-        $response["error_msg"] = "uid is absent";
+        $response["error_msg"] = "try again";
         echo json_encode($response);
     }
 }catch(Exception $e){
