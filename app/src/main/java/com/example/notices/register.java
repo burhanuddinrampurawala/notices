@@ -92,7 +92,7 @@ public class register extends AppCompatActivity {
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_REGISTER, new Response.Listener<String>() {
+                AppConfig.URL_STUDENT_REGISTER, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

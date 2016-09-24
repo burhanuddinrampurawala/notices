@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -108,8 +109,7 @@ public class login extends AppCompatActivity {
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
+                        String created_at = user.getString("created_at");
                         String year = user.getString("year");
                         String branch = user.getString("branch");
                         String rollno = user.getString("rollno");
@@ -181,9 +181,8 @@ public class login extends AppCompatActivity {
 
                     // Check for error node in json
                     if (!error) {
-                        // user successfully logged in
+                        // admin successfully logged in
                         // Create login session
-                        session.setLogin(true);
                         session.setAdmin(true);
 
                         Intent intent = new Intent(getApplicationContext(),
