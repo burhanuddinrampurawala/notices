@@ -12,16 +12,14 @@ try{
         $password = $_POST['password'];
      
         // get the user by email and password
-        $user = $db->getUserByEmailAndPassword($email, $password);
+        $user = $db->getAdmin($email, $password);
      
         if ($user != false) {
             // use is found
             $response["error"] = FALSE;
                 $response["uid"] = $user["uniqueid"];
                 $response["user"]["name"] = $user["name"];
-                $response["user"]["year"] = $user["year"];
-                $response["user"]["class"] = $user["class"];
-                $response["user"]["rollno"] = $user["rollno"];
+                $response["user"]["branch"] = $user["branch"];
                 $response["user"]["email"] = $user["email"];
                 $response["user"]["created_at"] = $user["createdat"];
                 $response["user"]["updated_at"] = $user["updatedat"];
@@ -41,7 +39,6 @@ try{
 }catch(Exception $e){
     $response["error"] = TRUE;
     $response["error_msg"] = var_dump($e->getMessage());
-
     echo json_encode($response);
 }
 ?>
