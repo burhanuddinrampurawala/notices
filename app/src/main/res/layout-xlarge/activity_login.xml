@@ -10,31 +10,48 @@
     tools:context=".login"
     android:background="@color/common_google_signin_btn_text_light_pressed">
 
-    <EditText
-        android:layout_width="300sp"
+    <Button
         android:layout_height="wrap_content"
-        android:id="@+id/usernameText"
-        android:layout_marginTop="86sp"
-        android:hint="Username"
+        android:text="Admin"
+        android:id="@+id/adminButton"
         android:textStyle="bold"
-        android:layout_alignLeft="@+id/passwordText"
-        android:layout_alignStart="@+id/passwordText"
-        android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
+        android:textSize="75sp"
+        android:layout_width="300sp"
+        android:padding="5sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/studentButton"
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameText"
+        android:layout_marginTop="24dp"
+        android:hint="Username"
+        android:textStyle="bold"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
+        android:textColor="@android:color/background_light"
+        android:textSize="50sp"
+        android:layout_width="600sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordText"
-        android:layout_below="@+id/usernameText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="39dp"
         android:textStyle="bold"
         android:hint="Password"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
         android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
+        android:textSize="50sp"
+        android:layout_width="600sp"
+        android:layout_below="@+id/usernameText"
+        android:layout_alignLeft="@+id/usernameText"
+        android:layout_alignStart="@+id/usernameText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,40 +59,27 @@
         android:text="REGISTER HERE"
         android:id="@+id/registerHere"
         android:textStyle="bold"
-        android:textSize="14sp"
+        android:textSize="34sp"
         android:clickable="true"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/passwordText"
         android:layout_alignRight="@+id/passwordText"
-        android:layout_alignEnd="@+id/passwordText"
-        android:layout_marginTop="12dp" />
+        android:layout_alignEnd="@+id/passwordText" />
 
     <Button
-        android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="Student"
         android:id="@+id/studentButton"
         android:textStyle="bold"
-        android:textSize="25sp"
-        android:padding="5sp"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20sp" />
-
-    <Button
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:text="Admin"
-        android:id="@+id/adminButton"
-        android:textStyle="bold"
-        android:textSize="25sp"
+        android:textSize="75sp"
         android:padding="5sp"
         android:gravity="center_vertical|center_horizontal"
         android:background="@android:color/holo_blue_dark"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/studentButton"
-        android:layout_alignLeft="@+id/studentButton"
-        android:layout_alignStart="@+id/studentButton" />
+        android:layout_marginTop="46dp"
+        android:layout_width="350sp"
+        android:layout_below="@+id/registerHere"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

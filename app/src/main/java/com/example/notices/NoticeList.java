@@ -1,7 +1,9 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,29 +21,88 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Iterator;
 
-public class NoticeList extends AppCompatActivity {
+
+public class NoticeList extends Activity {
 
     private static final String TAG = login.class.getSimpleName();
+   // private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
     private SQLiteHandler db;
     private SessionManager session;
     private ArrayAdapter<String> noticeadapter;
     private ListView noticelist;
     private DeleteNotice delete;
+    private Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_list);
         db = new SQLiteHandler(getApplicationContext());
         session = new SessionManager(getApplicationContext());
-
+//      DatabaseReference notice = reference.child("Notices");
+//      notice.addChildEventListener(
+//                new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                show(dataSnapshot);
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//                show(dataSnapshot);
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+        this.mHandler = new Handler();
+        this.mHandler.postDelayed(m_Runnable,5000);
         getNotice();
     }
+
+//    private void show(DataSnapshot dataSnapshot) {
+//        Iterator i = dataSnapshot.getChildren().iterator();
+//        int j = 0;
+//        while (i.hasNext()){
+//            title [j] = ((DataSnapshot)i.next()).getValue(String.class);
+//            descripton [j] = ((DataSnapshot)i.next()).getValue(String.class);
+//        }
+//        adapter(title,descripton);
+//    }
+
+    private final Runnable m_Runnable = new Runnable()
+    {
+        public void run()
+
+        {
+            NoticeList.this.mHandler.postDelayed(m_Runnable, 5000);
+        }
+
+    };
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -153,7 +214,7 @@ public class NoticeList extends AppCompatActivity {
                        }
                     // passing parameters uid, title, description, createdat, updatedat
                     UniqueId.uniqueid = uid;
-                    adapter(uid, title, description, createdat, updatedat);
+                   adapter(uid, title, description, createdat, updatedat);
 
                 } catch (JSONException e) {
                     // JSON error
@@ -202,4 +263,24 @@ public class NoticeList extends AppCompatActivity {
         registerForContextMenu(noticelist);
 
     }
+//    private void adapter(final String[] title, final String[] description){
+//        noticeadapter = new ArrayAdapter<String>(getApplicationContext(),
+//                R.layout.listitem,
+//                R.id.noticelistitem,
+//                title);
+//        noticelist = (ListView) findViewById(R.id.noticeListView);
+//        noticelist.setAdapter(noticeadapter);
+//        noticelist.setOnItemClickListener(
+//                new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Intent i = new Intent(getApplicationContext(),DisplayDescription.class);
+//                        i.putExtra("description", description[position]);
+//                        startActivity(i);
+//                    }
+//                }
+//        );
+//        registerForContextMenu(noticelist);
+//
+//    }
 }

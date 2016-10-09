@@ -16,5 +16,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/descriptionText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"/>
 </RelativeLayout>

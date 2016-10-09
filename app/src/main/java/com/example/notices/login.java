@@ -1,5 +1,6 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class login extends AppCompatActivity {
+public class login extends Activity {
 
     private static final String TAG = login.class.getSimpleName();
     protected EditText username;

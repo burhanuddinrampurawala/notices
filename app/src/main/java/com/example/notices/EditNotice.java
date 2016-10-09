@@ -1,5 +1,6 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,7 @@ import java.util.Map;
 
 
 
-public class EditNotice extends AppCompatActivity {
+public class EditNotice extends Activity {
     private ProgressDialog pDialog;
     private Context context;
     private static final String TAG = login.class.getSimpleName();

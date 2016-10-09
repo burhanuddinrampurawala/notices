@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:textSize="25sp" />
+        android:textSize="50sp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,7 +27,29 @@
         android:id="@+id/title"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31sp" />
+        android:layout_marginTop="31sp"
+        android:textSize="50sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:id="@+id/addButton"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="163dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:layout_marginTop="64dp"
+        android:textSize="50sp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,27 +57,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Notice Description"
         android:id="@+id/textView2"
+        android:layout_marginTop="104dp"
+        android:textStyle="bold"
+        android:textSize="50sp"
         android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31sp"
-        android:textStyle="bold"
-        android:textSize="25sp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/description"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD"
-        android:id="@+id/addButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="25sp" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

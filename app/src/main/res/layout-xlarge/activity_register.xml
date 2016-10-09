@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.notices.register"
+        android:background="@color/common_google_signin_btn_text_light_pressed"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:hint="NAME"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textColor="#ffffff"
+            android:layout_weight="0.06" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/year"
+            android:layout_width="match_parent"
+            android:hint="YEAR eg: SE"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textColor="#ffffff"
+            android:layout_weight="0.08" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/myClass"
+            android:layout_width="match_parent"
+            android:hint="CLASS eg: CMPN-2"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textColor="#ffffff"
+            android:layout_weight="0.09" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:id="@+id/rollno"
+        android:layout_width="match_parent"
+        android:hint="ROLL NUMBER"
+        android:textStyle="bold"
+        android:layout_marginTop="30sp"
+        android:textSize="30sp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
+        android:textColor="#ffffff"
+        android:layout_weight="0.09" />
+
+    <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:hint="EMAIL"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textColor="#ffffff"
+            android:layout_weight="0.06"
+            android:inputType="textEmailAddress"
+         />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:hint="PASSWORD"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textColor="#ffffff"
+            android:layout_weight="0.08" />
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password2"
+            android:layout_width="match_parent"
+            android:hint="CONFIRM PASSWORD"
+            android:layout_marginTop="30sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:textSize="30sp"
+            android:layout_weight="0.06"
+            android:textColor="#ffffff"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/signUp"
+        android:layout_marginTop="30sp"
+        android:textSize="30sp"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_weight="0.09" />
+
+</LinearLayout>
+

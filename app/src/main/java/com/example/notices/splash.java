@@ -1,10 +1,11 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class splash extends AppCompatActivity {
+public class splash extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

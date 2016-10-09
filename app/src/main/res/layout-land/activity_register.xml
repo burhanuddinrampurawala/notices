@@ -21,63 +21,69 @@
         android:hint="NAME"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
         tools:textColor="#ffffff"
         android:layout_weight="0.04" />
 
     <EditText
             android:layout_height="wrap_content"
             android:id="@+id/year"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="YEAR eg: SE"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
             tools:textColor="#ffffff"
             android:layout_weight="0.11" />
 
         <EditText
             android:layout_height="wrap_content"
             android:id="@+id/myClass"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="CLASS eg: CMPN-2"
             android:textStyle="bold"
-            android:textSize="23sp"
-            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            tools:textColor="#ffffff"
             android:layout_weight="0.13" />
         <EditText
             android:layout_height="wrap_content"
             android:id="@+id/rollno"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="ROLL NUMBER"
             android:textStyle="bold"
-            android:textSize="23sp"
-            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            tools:textColor="#ffffff"
             android:layout_weight="0.12" />
 
         <EditText
             android:layout_height="wrap_content"
             android:id="@+id/email"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="EMAIL"
             android:textStyle="bold"
-            android:textSize="23sp"
-            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            tools:textColor="#ffffff"
             android:layout_weight="0.09"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:ems="10"
+            android:ems="7"
             android:id="@+id/password"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="PASSWORD"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
             android:textColor="#ffffff"
             android:layout_weight="0.09" />
         <EditText
@@ -85,11 +91,12 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password2"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="7sp"
             android:layout_width="match_parent"
             android:hint="CONFIRM PASSWORD"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="20sp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
             android:textColor="#ffffff"
             android:layout_weight="0.08" />
 
@@ -99,8 +106,8 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/signUp"
-        android:layout_marginTop="30sp"
-        android:textSize="23sp"
+        android:layout_marginTop="7sp"
+        android:textSize="20sp"
         android:background="@android:color/holo_blue_dark" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class register extends AppCompatActivity {
+public class register extends Activity {
 
     private static final String TAG = register.class.getSimpleName();
     private EditText name;
@@ -34,13 +35,10 @@ public class register extends AppCompatActivity {
     private EditText rollno;
     private EditText email;
     private EditText password;
+    private EditText password2;
     private Button signUp;
     private ProgressDialog pDialog;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,7 @@ public class register extends AppCompatActivity {
         rollno = (EditText) findViewById(R.id.rollno);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+        password2 = (EditText) findViewById(R.id.password2);
         signUp = (Button) findViewById(R.id.signUp);
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -66,13 +65,20 @@ public class register extends AppCompatActivity {
                         String SmyClass = myClass.getText().toString().trim();
                         String Srollno = rollno.getText().toString().trim();
                         String Spassword = password.getText().toString().trim();
+                        String Spassword2 = password2.getText().toString().trim();
 
-                        if (!Sname.isEmpty() && !Syear.isEmpty() && !SmyClass.isEmpty() && !Srollno.isEmpty() && !Semail.isEmpty() && !Spassword.isEmpty()) {
-                            registerUser(Sname, Syear, SmyClass, Srollno, Semail, Spassword);
-                        } else {
+                        if (Sname.isEmpty() && Syear.isEmpty() && SmyClass.isEmpty() && Srollno.isEmpty() && Semail.isEmpty() && Spassword.isEmpty() && Spassword2.isEmpty()) {
                             Toast.makeText(getApplicationContext(),
                                     "Please enter your details!", Toast.LENGTH_LONG)
                                     .show();
+                        }
+                        else if(!Spassword.equals(Spassword2)) {
+                            Toast.makeText(getApplicationContext(),
+                                    "Passwords don't match", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                        else {
+                            registerUser(Sname, Syear, SmyClass, Srollno, Semail, Spassword);
                         }
                     }
                 });

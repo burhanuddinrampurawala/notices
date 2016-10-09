@@ -1,5 +1,6 @@
 package com.example.notices;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +24,7 @@ import java.util.Map;
 /**
  * Created by admin on 24/09/2016.
  */
-public class DeleteNotice extends AppCompatActivity {
+public class DeleteNotice extends Activity {
     private ProgressDialog pDialog;
     private Context context;
     private static final String TAG = login.class.getSimpleName();
