@@ -1,24 +1,4 @@
-# NOTICES
-Table of Contents
-1.	Introduction  
-2.	Languages   
-   a)	Java  
-   b)	Xml  
-   c)	Php  
-   d)	Mysql  
-3.	Key features  
-   a)	JSON parsing  
-   b)	Session managing  
-   c)	Hiding add, delete and edit features from the student  
-   d)	Volley  
-   e)	Singleton  
-4.	Future modifications  
-   a)	Notifications  
-   b)	Realtime Database   
-   c)	Forgot password  
-   d)	Edit/Update student data      
-
-
+# NOTICES  
 
 Version: 1.0  
 Modifier: Burhanuddin rampurawala  
@@ -55,7 +35,7 @@ This app will give an option to a teacher to connect with their students.
    *	Xml:  
    *	Php:  
    *	Mysql:  
-___
+___  
 ##KEY FEATURES  
    *	JSON parsing  
    *	Session managing  
