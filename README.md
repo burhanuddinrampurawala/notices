@@ -30,13 +30,12 @@ Date: 10/10/2016
 This app will give an option to a teacher to connect with their students.  
  ___
 ##LANGUAGES  
-
    *	Java  
    *	Xml  
    *	Php  
-   *	Mysql    
- ___
-##LANGUAGES  
+   *	Mysql 
+   ___
+##KEY FEATURES 
    *	JSON parsing  
    *	Session managing  
    *	Hiding add, delete and edit features from the student  
@@ -44,11 +43,10 @@ This app will give an option to a teacher to connect with their students.
    *	Singleton  
    ___  
 ##FUTURE MODIFICATIONS   
-
    *	Notifications  
    *	Realtime Database  
    *	Forgot password  
    *	Edit/Update student data
-   * Auth  
+   *  Auth
  ___  
 **the password is encrypted with a salt**
