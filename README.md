@@ -41,7 +41,8 @@ Date: 10/10/2016
 
 
 
-INTRODUCTION
+##INTRODUCTION
+
 
 
   Just around our daily college life we happen to miss a few important notices, due to our carelessness or due to our communication gap.
@@ -63,7 +64,7 @@ INTRODUCTION
   only.
 
 
-It has two types of login:
+###It has two types of login:
   •	Admin
   •	Student
 
@@ -71,26 +72,26 @@ It has two types of login:
   	Student can only go through the notice and its contents.
 
 This app will give an option to a teacher to connect with their students.
- 
-LANGUAGES
+ ___
+##LANGUAGES
 
    	Java:
    	Xml:
    	Php:
    	Mysql:
-
-KEY FEATURES
+___
+##KEY FEATURES
    	JSON parsing
    	Session managing
    	Hiding add, delete and edit features from the student
    	Volley
    	Singleton
-
-FUTURE MODIFICATIONS
+___
+##FUTURE MODIFICATIONS
 
    	Notifications
    	Realtime Database
    	Forgot password
    	Edit/Update student data
-
+___
 **the password is encrypted with a salt**
