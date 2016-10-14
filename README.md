@@ -24,31 +24,31 @@ Date: 10/10/2016
   *	Admin  
   *	Student  
 
-  *	Admin (Faculty) can add, delete and edit notices.  
-  *	Student can only go through the notice and its contents.  
+  ####Admin (Faculty) can add, delete and edit notices.    
+  ####Student can only go through the notice and its contents.  
 
 This app will give an option to a teacher to connect with their students.  
  ___
 ##LANGUAGES  
 
-   *	Java:  
-   *	Xml:  
-   *	Php:  
-   *	Mysql:  
-___  
+   *	Java  
+   *	Xml  
+   *	Php  
+   *	Mysql  
+___
 ##KEY FEATURES  
    *	JSON parsing  
    *	Session managing  
    *	Hiding add, delete and edit features from the student  
    *	Volley  
-   *	Singleton  
+   *	Singleton   
 ___
-##FUTURE MODIFICATIONS  
+##FUTURE MODIFICATIONS   
 
    *	Notifications  
    *	Realtime Database  
    *	Forgot password  
    *	Edit/Update student data
-   * Auth
+   * Auth  
 ___
 **the password is encrypted with a salt**
