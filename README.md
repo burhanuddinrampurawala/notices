@@ -35,14 +35,14 @@ This app will give an option to a teacher to connect with their students.
    *	Xml  
    *	Php  
    *	Mysql  
-___
+ ___
 ##KEY FEATURES  
    *	JSON parsing  
    *	Session managing  
    *	Hiding add, delete and edit features from the student  
    *	Volley  
    *	Singleton   
-___
+ ___
 ##FUTURE MODIFICATIONS   
 
    *	Notifications  
@@ -50,5 +50,5 @@ ___
    *	Forgot password  
    *	Edit/Update student data
    * Auth  
-___
+ ___
 **the password is encrypted with a salt**
