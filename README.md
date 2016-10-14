@@ -37,6 +37,7 @@ pp will give an option to a teacher to connect with their students.
    *	Xml  
    *	Php  
    *	Mysql  
+   
  ___
  
 ##KEY FEATURES 
@@ -45,7 +46,8 @@ pp will give an option to a teacher to connect with their students.
    *	Session managing  
    *	Hiding add, delete and edit features from the student  
    *	Volley  
-   *	Singleton   
+   *	Singleton  
+   
  ___
  
 ##FUTURE MODIFICATIONS 
@@ -55,6 +57,7 @@ pp will give an option to a teacher to connect with their students.
    *	Forgot password  
    *	Edit/Update student data
    *  Auth  
+   
  ___ 
 
 **the password is encrypted with a salt**
