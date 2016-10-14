@@ -35,8 +35,8 @@ This app will give an option to a teacher to connect with their students.
    *	Xml  
    *	Php  
    *	Mysql    
-   ___  
-##KEY FEATURES  
+ ___
+##LANGUAGES  
    *	JSON parsing  
    *	Session managing  
    *	Hiding add, delete and edit features from the student  
