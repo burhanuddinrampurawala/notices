@@ -162,6 +162,7 @@
               $stmt->execute();
               $user = $stmt->get_result()->fetch_assoc();
               $stmt->close();
+              getToken($title);
               return true;
           }
           else {
@@ -170,13 +171,14 @@
     }
      function editnotice($uid, $title, $description)
     {
-     $qury = "UPDATE noticedata SET title= '$title',description='$description',updatedat =NOW() WHERE uniqueid='$uid'";
-     if ($this->conn->query($qury)) {
-      return true;
-    }
-    else {
-        return false ;
-    }
+       $qury = "UPDATE noticedata SET title= '$title',description='$description',updatedat =NOW() WHERE uniqueid='$uid'";
+       if ($this->conn->query($qury)) {
+        getToken($title);
+        return true;
+      }
+      else {
+          return false ;
+      }
     }
      function deletenotice($uid)
     {
@@ -190,5 +192,48 @@
 
     $this->conn->close();
     }
+    function getToken($title)
+    {
+      $sql = " Select token From tokentable";
+      $result = mysqli_query($conn,$sql);
+      $tokens = array();
+      if(mysqli_num_rows($result) > 0 )
+      {
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+          $tokens[] = $row["Token"];
+        }
+      }
+      mysqli_close($conn);
+      $messgae = array("message" => '$title');
+      notification($tokens, $message);
+    }
+    function notification($tokens,$message)
+    {
+
+    $url = 'https://fcm.googleapis.com/fcm/send';
+    $fields = array(
+       'registration_ids' => $tokens,
+       'data' => $message
+      );
+    $headers = array(
+      'Authorization:key =  AIzaSyDpUjPAoujRbiuyA0tC4z1TPNRGli9ZsBg ',
+      'Content-Type: application/json'
+      );
+     $ch = curl_init();
+       curl_setopt($ch, CURLOPT_URL, $url);
+       curl_setopt($ch, CURLOPT_POST, true);
+       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);  
+       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+       curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+       $result = curl_exec($ch);           
+       if ($result === FALSE) {
+           die('Curl failed: ' . curl_error($ch));
+       }
+       curl_close($ch); 
+    }
 }
+
 ?>

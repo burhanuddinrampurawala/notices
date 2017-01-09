@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2016 at 02:41 PM
--- Server version: 5.7.11
--- PHP Version: 5.6.19
+-- Generation Time: Jan 09, 2017 at 11:57 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -62,10 +62,6 @@ CREATE TABLE `noticedata` (
 -- Dumping data for table `noticedata`
 --
 
-INSERT INTO `noticedata` (`uniqueid`, `title`, `description`, `createdat`, `updatedat`) VALUES
-('57db92f7aa6866.20059400', 'hello wrold part 2', 'some description', '2016-09-16 01:06:39', '2016-09-19 15:29:57'),
-('57e144a1ee55b0.15823341', 'sum up', 'adds it up', '2016-09-20 14:16:02', NULL),
-('57dff0bd654ec6.56307568', 'title', 'description', '2016-09-19 14:05:49', '2016-09-19 15:15:58');
 
 -- --------------------------------------------------------
 
@@ -94,6 +90,17 @@ CREATE TABLE `studentdata` (
 INSERT INTO `studentdata` (`id`, `uniqueid`, `name`, `year`, `branch`, `rollno`, `email`, `password`, `salt`, `createdat`, `updatedat`) VALUES
 (10, '57d9666ab46589.06634229', 'burhanuddin rampurawala', 'SE', 'CMPN-2', '76', 'burhanuddinzrampurawala@gmail.com', 'MTuNH2GSEGXPzP0I3U1Nk5qQZGlmM2RjOWUyNGVk', 'f3dc9e24ed', '2016-09-14 15:02:02', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tokentable`
+--
+
+CREATE TABLE `tokentable` (
+  `id` int(20) NOT NULL,
+  `token` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -119,6 +126,12 @@ ALTER TABLE `studentdata`
   ADD UNIQUE KEY `uniqueindex` (`uniqueid`);
 
 --
+-- Indexes for table `tokentable`
+--
+ALTER TABLE `tokentable`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -127,6 +140,11 @@ ALTER TABLE `studentdata`
 --
 ALTER TABLE `studentdata`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tokentable`
+--
+ALTER TABLE `tokentable`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
