@@ -26,9 +26,6 @@ Date: 10/10/2016
 
   ####Admin (Faculty) can add, delete and edit notices.    
   ####Student can only go through the notice and its contents.  
-
-This a
-pp will give an option to a teacher to connect with their students.  
  ___
  
 ##LANGUAGES  
