@@ -3,6 +3,9 @@ package com.example.notices;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +37,7 @@ public class login extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+    private FcmToken fcm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,7 @@ public class login extends Activity {
         password = (EditText)findViewById(R.id.passwordText);
         Button loginButton = (Button)findViewById(R.id.studentButton);
         TextView registerbtn = (TextView) findViewById(R.id.registerHere);
+        fcm = new FcmToken();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
                                            @Override
@@ -117,6 +122,7 @@ public class login extends Activity {
 
                         // Inserting row in users table
                         db.addUser(uid, name, year, branch, rollno, email, created_at);
+                        fcm.onTokenRefresh();
 
                         Intent intent = new Intent(getApplicationContext(),
                                 NoticeList.class);
@@ -185,7 +191,7 @@ public class login extends Activity {
                         // admin successfully logged in
                         // Create login session
                         session.setAdmin(true);
-
+                        fcm.onTokenRefresh();
                         Intent intent = new Intent(getApplicationContext(),
                                 NoticeList.class);
                         startActivity(intent);
@@ -239,4 +245,6 @@ public class login extends Activity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+
 }

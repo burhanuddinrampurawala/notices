@@ -19,7 +19,9 @@ public class AppController extends Application {
 
     private static AppController mInstance;
 
-
+    public AppController() {
+        mRequestQueue = getRequestQueue();
+    }
 
     public AppController(Context context) {
         ct = context;
@@ -29,6 +31,12 @@ public class AppController extends Application {
     public static synchronized AppController getInstance(Context context) {
         if (mInstance == null){
             mInstance = new AppController(context);
+        }
+        return mInstance;
+    }
+    public static synchronized AppController getInstance() {
+        if (mInstance == null){
+            mInstance = new AppController();
         }
         return mInstance;
     }

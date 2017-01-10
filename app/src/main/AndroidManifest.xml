@@ -32,20 +32,23 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <!--<service android:name=".FcmToken">-->
-            <!--<intent-filter>-->
-                <!--<action-->
-                    <!--android:name="com.google.firebase.INSTANCE_ID_EVENT">-->
-                <!--</action>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
-        <!--<service android:name=".Notification">-->
-            <!--<intent-filter>-->
-                <!--<action-->
-                    <!--android:name="com.google.firebase.MESSAGING_EVENT">-->
-                <!--</action>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <service android:name=".FcmToken">
+            <intent-filter>
+                <action
+                    android:name="com.google.firebase.INSTANCE_ID_EVENT">
+                </action>
+            </intent-filter>
+        </service>
+        <service android:name=".Notification">
+            <intent-filter>
+                <action
+                    android:name="com.google.firebase.MESSAGING_EVENT">
+                </action>
+            </intent-filter>
+        </service>
         <activity android:name=".NoticeList" />
         <activity android:name=".AddNotice" />
         <activity android:name=".DisplayDescription"></activity>

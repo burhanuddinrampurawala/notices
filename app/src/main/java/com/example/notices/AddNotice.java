@@ -17,8 +17,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +43,6 @@ public class AddNotice extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notice);
-       // ref = FirebaseDatabase.getInstance().getReference().child("Notices");
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -70,27 +67,15 @@ public class AddNotice extends Activity {
                                 description = descriptionText.getText().toString();
                                 //sendToken();
                                 edit = new EditNotice(uid, title, description, AddNotice.this);
-                                Intent intent = new Intent(AddNotice.this,
-                                        NoticeList.class);
+                                Intent intent = new Intent(AddNotice.this, NoticeList.class);
                                 startActivity(intent);
                             }
                             else{
                                 title = titleText.getText().toString();
                                 description = descriptionText.getText().toString();
-//                                String uid = ref.push().getKey();
-//                                DatabaseReference root = ref.child(uid);
-//                                Map<String,Object> noticedata = new HashMap<String, Object>();
-//                                noticedata.put("title", title);
-//                                noticedata.put("description", description);
-//                                root.updateChildren(noticedata);
-//                                Log.v(TAG, "add Response: " + uid);
-//                                Toast.makeText(getApplicationContext(),
-//                                        "Success", Toast.LENGTH_LONG).show();
-//                                Intent i = new Intent(getApplicationContext(),NoticeList.class);
-//                                startActivity(i);
-                                //sendToken();
                                 addNotice(title, description);
-
+                                Intent i = new Intent(AddNotice.this, NoticeList.class);
+                                startActivity(i);
                             }
                         }
 
@@ -181,34 +166,5 @@ public class AddNotice extends Activity {
         super.onStart();
 
     }
-//    private void sendToken() {
-//        // Tag used to cancel the request
-//        String tag_string_req = "req_register";
-//        StringRequest strReq = new StringRequest(Request.Method.POST,
-//                AppConfig.URL_TOKEN, new Response.Listener<String>() {
-//
-//            @Override
-//            public void onResponse(String response) {}
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {}
-//        }) {
-//
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError{
-//                // Posting params to register url
-//                Map<String, String> params = new HashMap<String, String>();
-//                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("FCM_TOKEN",0);
-//                String key = sharedPreferences.getString("TOKEN","");
-//                Log.v(TAG, "add Response: " + key);
-//                params.put("notificationkey", key);
-//                return params;
-//            }
-//
-//        };
-//
-//        // Adding request to request queue
-//        AppController.getInstance(getApplicationContext()).addToRequestQueue(strReq, tag_string_req);
-//
-//    }
+
 }

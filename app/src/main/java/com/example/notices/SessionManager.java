@@ -23,6 +23,10 @@ public class SessionManager {
 
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
     private static final String KEY_IS_ADMIN = "isadmin";
+//    public SessionManager(){
+//        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+//        editor = pref.edit();
+//    }
 
     public SessionManager(Context context) {
         this._context = context;

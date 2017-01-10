@@ -19,5 +19,6 @@
         android:choiceMode="singleChoice"
         android:fadingEdge="none"
         android:filterTouchesWhenObscured="false"
-        android:padding="20sp" />
+        android:padding="20sp"
+        />
 </ScrollView>

@@ -13,18 +13,6 @@
     <EditText
         android:layout_width="300sp"
         android:layout_height="wrap_content"
-        android:id="@+id/usernameText"
-        android:layout_marginTop="86sp"
-        android:hint="Username"
-        android:textStyle="bold"
-        android:layout_alignLeft="@+id/passwordText"
-        android:layout_alignStart="@+id/passwordText"
-        android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
-
-    <EditText
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordText"
@@ -34,20 +22,7 @@
         android:textStyle="bold"
         android:hint="Password"
         android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REGISTER HERE"
-        android:id="@+id/registerHere"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:clickable="true"
-        android:layout_below="@+id/passwordText"
-        android:layout_alignRight="@+id/passwordText"
-        android:layout_alignEnd="@+id/passwordText"
-        android:layout_marginTop="12dp" />
+        android:textSize="20sp" />
 
     <Button
         android:layout_width="150sp"
@@ -76,6 +51,32 @@
         android:layout_below="@+id/studentButton"
         android:layout_alignLeft="@+id/studentButton"
         android:layout_alignStart="@+id/studentButton" />
+
+    <EditText
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameText"
+        android:layout_marginTop="33dp"
+        android:hint="Username"
+        android:textStyle="bold"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/passwordText"
+        android:layout_alignStart="@+id/passwordText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER HERE"
+        android:id="@+id/registerHere"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:clickable="true"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/studentButton"
+        android:layout_alignRight="@+id/passwordText"
+        android:layout_alignEnd="@+id/passwordText" />
 
 
 </RelativeLayout>
