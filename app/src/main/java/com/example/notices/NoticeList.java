@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -150,29 +151,36 @@ public class NoticeList extends Activity {
 
                 try {
                     JSONObject noticejson = new JSONObject(response);
-                    JSONArray noticearray = noticejson.getJSONArray("notice");
-                    String[] uid = new String[noticearray.length()];
-                    String[] title = new String[noticearray.length()];
-                    String[] description = new String[noticearray.length()];
-                    String[] createdat = new String[noticearray.length()];
-                    String[] updatedat = new String[noticearray.length()];
-                   // uniqueid = new String[noticearray.length()];
+                    boolean error = noticejson.getBoolean("error");
+                    if (!error){
+                        JSONArray noticearray = noticejson.getJSONArray("error_msg");
+                        String[] uid = new String[noticearray.length()];
+                        String[] title = new String[noticearray.length()];
+                        String[] description = new String[noticearray.length()];
+                        String[] createdat = new String[noticearray.length()];
+                        String[] updatedat = new String[noticearray.length()];
 
-                    //parsing json
+                        //parsing json
 
-                    for (int i = 0; i < noticearray.length(); i++) {
+                        for (int i = 0; i < noticearray.length(); i++) {
 
-                       JSONObject notice =  noticearray.getJSONObject(i);
+                            JSONObject notice =  noticearray.getJSONObject(i);
 
-                        uid [i] = notice.getString("uniqueid");
-                        title[i] = notice.getString("title");
-                        description[i] = notice.getString("description");
-                        createdat [i] = notice.getString("createdat");
-                        updatedat [i] = notice.getString("updatedat");
-                       }
-                    // passing parameters uid, title, description, createdat, updatedat
-                    UniqueId.uniqueid = uid;
-                   adapter(uid, title, description, createdat, updatedat);
+                            uid [i] = notice.getString("uniqueid");
+                            title[i] = notice.getString("title");
+                            description[i] = notice.getString("description");
+                            createdat [i] = notice.getString("createdat");
+                            updatedat [i] = notice.getString("updatedat");
+                        }
+                        // passing parameters uid, title, description, createdat, updatedat
+                        UniqueId.uniqueid = uid;
+                        adapter(uid, title, description, createdat, updatedat);
+                    }
+                    else {
+                        String message = noticejson.getString("error_msg");
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                    }
+
 
                 } catch (JSONException e) {
                     // JSON error
@@ -221,5 +229,21 @@ public class NoticeList extends Activity {
         registerForContextMenu(noticelist);
 
     }
+
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event)
+//    {
+//        if(keyCode == KeyEvent.KEYCODE_BACK)
+//        {
+//            this.finish();
+//            Intent intent = new Intent(Intent.ACTION_MAIN);
+//            intent.addCategory(Intent.CATEGORY_HOME);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

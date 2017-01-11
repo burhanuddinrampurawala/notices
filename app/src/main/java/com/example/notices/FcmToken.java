@@ -30,6 +30,7 @@ public class FcmToken extends FirebaseInstanceIdService {
         Log.v(TAG, "add Response: " + token);
         sendToken(token);
     }
+
     private void sendToken(final String key) {
         // Tag used to cancel the request
         String tag_string_req = "req_register";

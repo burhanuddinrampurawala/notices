@@ -15,7 +15,7 @@ public class splash extends Activity {
             @Override
             public void run() {
                 try {
-                    sleep(2000);
+                    sleep(1000);
                     SessionManager s= new SessionManager(getApplicationContext());
                    if (s.isLoggedIn()||s.isadmin()){
                         Intent i = new Intent(getApplicationContext(), NoticeList.class);

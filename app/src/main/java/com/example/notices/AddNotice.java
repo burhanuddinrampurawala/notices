@@ -74,8 +74,6 @@ public class AddNotice extends Activity {
                                 title = titleText.getText().toString();
                                 description = descriptionText.getText().toString();
                                 addNotice(title, description);
-                                Intent i = new Intent(AddNotice.this, NoticeList.class);
-                                startActivity(i);
                             }
                         }
 
