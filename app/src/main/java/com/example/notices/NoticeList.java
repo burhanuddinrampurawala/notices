@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -46,10 +45,10 @@ public class NoticeList extends Activity {
         setContentView(R.layout.activity_notice_list);
         db = new SQLiteHandler(getApplicationContext());
         session = new SessionManager(getApplicationContext());
+        getNotice();
 
         this.mHandler = new Handler();
         this.mHandler.postDelayed(m_Runnable,5000);
-        getNotice();
     }
 
 
@@ -58,6 +57,7 @@ public class NoticeList extends Activity {
         public void run()
 
         {
+            getNotice();
             NoticeList.this.mHandler.postDelayed(m_Runnable, 5000);
         }
 
@@ -177,8 +177,8 @@ public class NoticeList extends Activity {
                         adapter(uid, title, description, createdat, updatedat);
                     }
                     else {
-                        String message = noticejson.getString("error_msg");
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+//                        String message = noticejson.getString("error_msg");
+//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
 
 
@@ -231,19 +231,16 @@ public class NoticeList extends Activity {
     }
 
 
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event)
-//    {
-//        if(keyCode == KeyEvent.KEYCODE_BACK)
-//        {
-//            this.finish();
-//            Intent intent = new Intent(Intent.ACTION_MAIN);
-//            intent.addCategory(Intent.CATEGORY_HOME);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
-//            return true;
-//        }
-//        return false;
-//    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            this.finish();
+            System.exit(0);
+            return true;
+        }
+        return false;
+    }
 
 }
