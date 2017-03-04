@@ -74,6 +74,8 @@ public class AddNotice extends Activity {
                                 title = titleText.getText().toString();
                                 description = descriptionText.getText().toString();
                                 addNotice(title, description);
+                                Intent intent = new Intent(AddNotice.this, NoticeList.class);
+                                startActivity(intent);
                             }
                         }
 
@@ -105,8 +107,6 @@ public class AddNotice extends Activity {
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(getApplicationContext(),NoticeList.class);
-                        startActivity(i);
                         finish();
                     } else {
 
