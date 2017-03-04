@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_a73fb26d5a7cae3509ed6649296c5c4e6755fa97\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_442798e75fefd470ff33eec86ff02fcf55b62d26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_189c8ce353b6f22e76b2585a273c4a3bd9476d41\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_b799e9b3c5da064364b971965f1c06ff9a086fa8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_89b1a072d5684769167a3aa431f4e7dd0a41ebe6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_b2d95f2f7e25a056c1a988b7b6a84f3efdb1b9e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0fe021b49bb8861f6813c068a40e8b612615e2cf">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c95a72a60f6eec6fc11e11a609ca0f7bc2164771\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_d0aba61c9cd4862021d96bb37cac7ab016832e93\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_3a2bd81aec038ca9055062910cd36a83feea887e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="5ffe8867f51cfc726e9fb21db1e5b6962ebf25a0">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.8.0_a3069afffae043ac4bfc10e19141943e37a9daff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_53e9cfb44e699d120d66f67c724ead77c9c418ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_77655110a64bae9205d824fbd1bd6e955837e4b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_1d481c10e65dab5e22637f11afea25207587357d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_4c1bed121ef94673d733c853581a0429da8bbedd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_2450422ffbf27aa808c2777c4db7684752eb643a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_7003ecfbb8ef559b1e46ed95e77a39083f22de6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_8a9480c6aea76831c8dcc62aa93df5f9979d2102\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.8.0_ede377377646aa2b14afd47bf624ba83b39ce3a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_c41d9021e2f416f43b28dafe2687b9e1a1e6c4d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c7987e5a1a3ec06ac2cb5d1780a802e26c81e6a8">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_72d36f876674cdb37a02c6a001731486cf18c414\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_00241b466878769948f96fe4c225a2184b60bfb2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_963fbccca943d7a5c5001b4d633ed2f74eb5b27b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_9c9b49fc0a52f0defa68ca118c1c571bce3b96a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_8e1e1552d5b064e4e5bce42e237f80d41b365c8b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\MY FOLDER\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_6ee8481261e552513b4143e872ba07cd6e88f78b\classes.dex" />
+    </item>
+
+</items>
