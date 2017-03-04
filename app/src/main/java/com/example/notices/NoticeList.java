@@ -1,7 +1,10 @@
 package com.example.notices;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
@@ -38,6 +41,7 @@ public class NoticeList extends Activity {
     private ListView noticelist;
     private DeleteNotice delete;
     private Handler mHandler;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +78,7 @@ public class NoticeList extends Activity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        int i = info.position;
+        final int i = info.position;
         switch (item.getItemId()) {
             case R.id.edit:
                 Intent intent = new Intent(getApplicationContext(),AddNotice.class);
@@ -82,9 +86,24 @@ public class NoticeList extends Activity {
                 startActivity(intent);
                 return true;
             case R.id.delete:
-                delete = new DeleteNotice(UniqueId.uniqueid[i],NoticeList.this);
-                Intent intent1 = new Intent(getApplicationContext(),NoticeList.class);
-                startActivity(intent1);
+                dialog = new AlertDialog.Builder(this).create();
+                dialog.setTitle("Delete Notice");
+                dialog.setMessage("Are you sure you want to delete this notice?");
+                dialog.setButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        delete = new DeleteNotice(UniqueId.uniqueid[i],NoticeList.this);
+                        Intent intent1 = new Intent(getApplicationContext(),NoticeList.class);
+                        startActivity(intent1);
+                    }
+                });
+                dialog.setButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
                 return true;
             default:
                 return super.onContextItemSelected(item);
