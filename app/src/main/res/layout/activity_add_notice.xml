@@ -7,17 +7,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.notices.AddNotice"
-    android:background="@android:color/holo_blue_bright">
-    <RelativeLayout
+    tools:context="com.example.notices.AddNotice">
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Notice Title"
-            android:id="@+id/textView"
+            android:text="Head"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
@@ -26,10 +25,28 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/head"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Notice Title"
+            android:id="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="30sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/title"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="31sp" />
+            android:layout_marginTop="30sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,9 +56,10 @@
             android:id="@+id/textView2"
             android:layout_below="@+id/title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="31sp"
+            android:layout_marginTop="30sp"
             android:textStyle="bold"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            />
 
         <EditText
             android:layout_width="match_parent"
@@ -52,17 +70,16 @@
             android:layout_marginTop="30sp" />
 
         <Button
-            android:layout_height="wrap_content"
-            android:text="ADD"
             android:id="@+id/addButton"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:layout_marginTop="38dp"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/description"
             android:layout_centerHorizontal="true"
-            android:layout_width="150sp" />
+            android:layout_marginTop="30dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="ADD"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    </RelativeLayout>
-
-
+    </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>

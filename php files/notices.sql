@@ -47,25 +47,6 @@ INSERT INTO `admindata` (`uniqueid`, `name`, `branch`, `email`, `password`, `sal
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noticedata`
---
-
-CREATE TABLE `noticedata` (
-  `uniqueid` varchar(100) NOT NULL,
-  `title` varchar(256) NOT NULL,
-  `description` varchar(10000) NOT NULL,
-  `createdat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedat` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `noticedata`
---
-
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `studentdata`
 --
 
@@ -111,12 +92,7 @@ CREATE TABLE `tokentable` (
 ALTER TABLE `admindata`
   ADD UNIQUE KEY `uniqueid` (`uniqueid`);
 
---
--- Indexes for table `noticedata`
---
-ALTER TABLE `noticedata`
-  ADD PRIMARY KEY (`uniqueid`),
-  ADD UNIQUE KEY `uniqueid` (`uniqueid`);
+
 
 --
 -- Indexes for table `studentdata`

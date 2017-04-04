@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.notices.register"
-        android:background="@color/common_google_signin_btn_text_light_pressed"
         android:weightSum="1"
         android:orientation="vertical">
 
@@ -22,8 +21,6 @@
             android:textStyle="bold"
             android:layout_marginTop="30sp"
             android:textSize="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:textColor="#ffffff"
             android:layout_weight="0.06" />
 
         <EditText
@@ -34,8 +31,6 @@
             android:textStyle="bold"
             android:layout_marginTop="30sp"
             android:textSize="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:textColor="#ffffff"
             android:layout_weight="0.08" />
 
         <EditText
@@ -46,8 +41,6 @@
             android:textStyle="bold"
             android:layout_marginTop="30sp"
             android:textSize="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:textColor="#ffffff"
             android:layout_weight="0.09" />
 
     <EditText
@@ -58,8 +51,6 @@
         android:textStyle="bold"
         android:layout_marginTop="30sp"
         android:textSize="30sp"
-        android:background="@color/common_google_signin_btn_text_dark_disabled"
-        android:textColor="#ffffff"
         android:layout_weight="0.09" />
 
     <EditText
@@ -70,8 +61,6 @@
             android:textStyle="bold"
             android:layout_marginTop="30sp"
             android:textSize="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:textColor="#ffffff"
             android:layout_weight="0.06"
             android:inputType="textEmailAddress"
          />
@@ -86,8 +75,6 @@
             android:textStyle="bold"
             android:layout_marginTop="30sp"
             android:textSize="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:textColor="#ffffff"
             android:layout_weight="0.08" />
         <EditText
             android:layout_height="wrap_content"
@@ -97,10 +84,8 @@
             android:layout_width="match_parent"
             android:hint="CONFIRM PASSWORD"
             android:layout_marginTop="30sp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
             android:textSize="30sp"
-            android:layout_weight="0.06"
-            android:textColor="#ffffff"/>
+            android:layout_weight="0.06"/>
 
 
     <Button

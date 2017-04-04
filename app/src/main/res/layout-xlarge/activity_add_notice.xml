@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.notices.AddNotice"
-    android:background="@android:color/holo_blue_bright">
+    tools:context="com.example.notices.AddNotice">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="1000sp">

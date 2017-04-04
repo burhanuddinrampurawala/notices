@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".login"
-    android:background="@color/common_google_signin_btn_text_light_pressed">
+    tools:context=".login">
 
     <EditText
         android:layout_height="wrap_content"
@@ -16,7 +15,6 @@
         android:layout_marginTop="24dp"
         android:hint="Username"
         android:textStyle="bold"
-        android:background="@color/common_google_signin_btn_text_dark_disabled"
         android:textColor="@android:color/background_light"
         android:textSize="35sp"
         android:layout_width="700sp"
@@ -31,7 +29,6 @@
         android:layout_marginTop="39dp"
         android:textStyle="bold"
         android:hint="Password"
-        android:background="@color/common_google_signin_btn_text_dark_disabled"
         android:textColor="@android:color/background_light"
         android:textSize="35sp"
         android:layout_width="700sp"
