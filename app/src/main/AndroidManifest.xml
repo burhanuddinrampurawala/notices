@@ -3,13 +3,17 @@
     package="com.example.notices">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="com.example.notices.Persistence">
         <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,7 +55,7 @@
         </service>
         <activity android:name=".NoticeList" />
         <activity android:name=".AddNotice" />
-        <activity android:name=".DisplayDescription"></activity>
+        <activity android:name=".DisplayDescription" />
     </application>
 
 </manifest>

@@ -123,8 +123,8 @@ public class NoticeList extends Activity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        noticeadapter.remove(noticeadapter.getItem(i));
-                        noticeadapter.notifyDataSetChanged();
+//                        noticeadapter.remove(noticeadapter.getItem(i));
+//                        noticeadapter.notifyDataSetChanged();
                         delete = new DeleteNotice(i,NoticeList.this);
                     }
                 });

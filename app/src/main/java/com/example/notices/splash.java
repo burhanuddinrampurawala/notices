@@ -14,7 +14,6 @@ public class splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         Thread thread = new Thread(){
             @Override
             public void run() {

@@ -3,21 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.notices.AddNotice">
-    <RelativeLayout
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="1000sp">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Notice Title"
-            android:id="@+id/textView"
+            android:text="Head"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
@@ -26,21 +26,28 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/title"
+            android:id="@+id/head"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="31sp"
-            android:textSize="50sp"/>
+            android:layout_marginTop="60sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Notice Title"
+            android:id="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:layout_marginTop="60sp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/description"
-            android:layout_marginTop="64dp"
-            android:textSize="50sp"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/title"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,23 +55,68 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Notice Description"
             android:id="@+id/textView2"
-            android:layout_marginTop="104dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60sp"
             android:textStyle="bold"
             android:textSize="50sp"
-            android:layout_below="@+id/title"
-            android:layout_centerHorizontal="true" />
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/displayimage"
+            android:layout_gravity="center_horizontal"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="40sp">
+
+            <Button
+                android:id="@+id/camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:text="Camera"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80sp"
+                android:text="Gallery"
+                android:textSize="50sp"/>
+
+            <Button
+                android:id="@+id/file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80sp"
+                android:text="File"
+                android:textSize="50sp"/>
+        </TableRow>
 
         <Button
-            android:layout_height="wrap_content"
-            android:text="ADD"
             android:id="@+id/addButton"
-            android:textStyle="bold"
-            android:textSize="50sp"
-            android:layout_marginTop="70dp"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/description"
             android:layout_centerHorizontal="true"
-            android:layout_width="300sp" />
-    </RelativeLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="ADD"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
-
+    </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>
