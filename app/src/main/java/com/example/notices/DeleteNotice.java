@@ -22,7 +22,6 @@ import com.google.firebase.storage.FirebaseStorage;
 public class DeleteNotice extends Activity {
     private ProgressDialog pDialog;
     private Context context;
-    private static final String TAG = login.class.getSimpleName();
     FirebaseStorage storage;
     public DeleteNotice (int id, Context context){
         pDialog = new ProgressDialog(context);
@@ -65,7 +64,7 @@ public class DeleteNotice extends Activity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                Log.w("notice", "loadPost:onCancelled", databaseError.toException());
                 // ...
             }
 

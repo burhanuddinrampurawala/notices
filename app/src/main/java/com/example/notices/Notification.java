@@ -21,11 +21,9 @@ import java.util.*;
 
 public class Notification extends FirebaseMessagingService {
 
-    SessionManager s;
     String TAG = Notification.class.getSimpleName();
     public void onCreate(){
         super.onCreate();
-        s = new SessionManager(getApplicationContext());
     }
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {

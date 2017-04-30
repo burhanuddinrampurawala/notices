@@ -22,7 +22,7 @@ import static android.R.attr.key;
  */
 
 public class FcmToken extends FirebaseInstanceIdService {
-    private static final String TAG = login.class.getSimpleName();
+    private static final String TAG = "";
 
     @Override
     public void onTokenRefresh() {

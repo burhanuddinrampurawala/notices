@@ -16,9 +16,11 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -43,7 +45,6 @@ public class AddNotice extends Activity {
     private String head;
     private Button add;
     private ProgressDialog pDialog;
-    private static final String TAG = login.class.getSimpleName();
     private int i;
     private int id;
     private Button camera;
@@ -115,78 +116,89 @@ public class AddNotice extends Activity {
                         public void onClick(View v) {
 
                             if (i == 1) {
-                                title = titleText.getText().toString();
-                                description = descriptionText.getText().toString();
-                                head = headtext.getText().toString();
-                                final DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference();
-                                ValueEventListener postListener = new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                        // Get Post object and use the values to update the UI
-                                        Iterable<DataSnapshot> a = dataSnapshot.getChildren();
-                                        int j = 0;
-                                        for (DataSnapshot m : a){
-                                            if(id == j){
-                                                String uid = m.getKey();
-                                                mPostReference.child(uid).child("head").setValue(head);
-                                                mPostReference.child(uid).child("title").setValue(title);
-                                                mPostReference.child(uid).child("description").setValue(description);
-                                                break;
+                                if(FirebaseAuth.getInstance().getCurrentUser() != null){
+                                    title = titleText.getText().toString();
+                                    description = descriptionText.getText().toString();
+                                    head = headtext.getText().toString();
+                                    final DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference();
+                                    ValueEventListener postListener = new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            // Get Post object and use the values to update the UI
+                                            Iterable<DataSnapshot> a = dataSnapshot.getChildren();
+                                            int j = 0;
+                                            for (DataSnapshot m : a){
+                                                if(id == j){
+                                                    String uid = m.getKey();
+                                                    mPostReference.child(uid).child("head").setValue(head);
+                                                    mPostReference.child(uid).child("title").setValue(title);
+                                                    mPostReference.child(uid).child("description").setValue(description);
+                                                    break;
+                                                }
+                                                j++;
                                             }
-                                            j++;
+                                            Intent intent = new Intent(AddNotice.this, NoticeList.class);
+                                            startActivity(intent);
+
                                         }
-                                        Intent intent = new Intent(AddNotice.this, NoticeList.class);
-                                        startActivity(intent);
 
-                                    }
-
-                                    @Override
-                                    public void onCancelled(DatabaseError databaseError) {
-                                        // Getting Post failed, log a message
-                                        Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                                        // ...
-                                    }
-
-                                };
-                                mPostReference.addValueEventListener(postListener);
-                            }
-                            else{
-                                title = titleText.getText().toString();
-                                description = descriptionText.getText().toString();
-                                head = headtext.getText().toString();
-                                HashMap<String, String> send = new HashMap<String, String>();
-                                send.put("head",head);
-                                send.put("title", title);
-                                send.put("description",description);
-                                String  uuid = ref.push().getKey();
-                                ref.child(uuid).setValue(send);
-
-                                displayimage.setDrawingCacheEnabled(true);
-                                displayimage.buildDrawingCache();
-                                Bitmap bitmap = displayimage.getDrawingCache();
-                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                                if(bitmap != null)
-                                {
-                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                                    byte[] data = baos.toByteArray();
-                                    StorageReference images = storage.getReference("images/"+ title);
-                                    UploadTask uploadTask = images.putBytes(data);
-                                    uploadTask.addOnFailureListener(new OnFailureListener() {
                                         @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                            // Handle unsuccessful uploads
+                                        public void onCancelled(DatabaseError databaseError) {
+                                            // Getting Post failed, log a message
+                                            Log.w("" ,"loadPost:onCancelled", databaseError.toException());
+                                            // ...
                                         }
-                                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                        @Override
-                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                                            //  Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                                        }
-                                    });
+
+                                    };
+                                    mPostReference.addValueEventListener(postListener);
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(),"yow will have to Sign in first",Toast.LENGTH_SHORT);
                                 }
 
-                                Intent intent = new Intent(AddNotice.this, NoticeList.class);
-                                startActivity(intent);
+                            }
+                            else{
+                                if(FirebaseAuth.getInstance().getCurrentUser() != null){
+                                    title = titleText.getText().toString();
+                                    description = descriptionText.getText().toString();
+                                    head = headtext.getText().toString();
+                                    HashMap<String, String> send = new HashMap<String, String>();
+                                    send.put("head",head);
+                                    send.put("title", title);
+                                    send.put("description",description);
+                                    String  uuid = ref.push().getKey();
+                                    ref.child(uuid).setValue(send);
+
+                                    displayimage.setDrawingCacheEnabled(true);
+                                    displayimage.buildDrawingCache();
+                                    Bitmap bitmap = displayimage.getDrawingCache();
+                                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                    if(bitmap != null)
+                                    {
+                                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                                        byte[] data = baos.toByteArray();
+                                        StorageReference images = storage.getReference("images/"+ title);
+                                        UploadTask uploadTask = images.putBytes(data);
+                                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception exception) {
+                                                // Handle unsuccessful uploads
+                                            }
+                                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                                                //  Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                                            }
+                                        });
+                                    }
+
+                                    Intent intent = new Intent(AddNotice.this, NoticeList.class);
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(),"yow will have to Sign in first",Toast.LENGTH_LONG);
+                                }
                             }
                         }
 

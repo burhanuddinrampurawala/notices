@@ -109,7 +109,7 @@ public class register extends Activity {
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(getApplicationContext(),login.class);
+                        Intent i = new Intent(getApplicationContext(),LoginActivity.class);
                         startActivity(i);
                         finish();
                     } else {

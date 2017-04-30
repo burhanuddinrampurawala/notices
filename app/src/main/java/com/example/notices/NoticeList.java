@@ -15,7 +15,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;
 
 
@@ -23,9 +26,7 @@ import com.google.firebase.database.*;
 
 public class NoticeList extends Activity {
 
-    private static final String TAG = login.class.getSimpleName();
-    private SQLiteHandler db;
-    private SessionManager session;
+    private static final String TAG ="";
     private ArrayAdapter<String> noticeadapter;
     private ListView noticelist;
     private DeleteNotice delete;
@@ -36,8 +37,6 @@ public class NoticeList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_list);
-        db = new SQLiteHandler(getApplicationContext());
-        session = new SessionManager(getApplicationContext());
         getnotice();
 
     }
@@ -105,9 +104,10 @@ public class NoticeList extends Activity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        //if (session.isadmin()){
+        if (FirebaseAuth.getInstance().getCurrentUser() != null){
             MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.contextmenu,menu);//}
+            inflater.inflate(R.menu.contextmenu,menu);
+        }
     }
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -120,24 +120,30 @@ public class NoticeList extends Activity {
                 startActivity(intent);
                 return true;
             case R.id.delete:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-//                        noticeadapter.remove(noticeadapter.getItem(i));
-//                        noticeadapter.notifyDataSetChanged();
-                        delete = new DeleteNotice(i,NoticeList.this);
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.setTitle("Delete Notice");
-                dialog.setMessage("Are you sure you want to delete this notice?");
-                 dialog.show();
-               return true;
+                //if(FirebaseAuth.getInstance().getCurrentUser() != null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            delete = new DeleteNotice(i,NoticeList.this);
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.setTitle("Delete Notice");
+                    dialog.setMessage("Are you sure you want to delete this notice?");
+                    dialog.show();
+                    return true;
+                //}
+
+//                else{
+//                    Toast.makeText(getApplicationContext(),"yow will have to Sign in first",Toast.LENGTH_SHORT);
+//                    return false;
+//                }
+
             default:
                 return super.onContextItemSelected(item);
         }
@@ -153,10 +159,10 @@ public class NoticeList extends Activity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-//        if (!session.isadmin()){
-//            menu.getItem(1).setEnabled(false);
-//            menu.getItem(1).setVisible(false);
-//        }
+        if (FirebaseAuth.getInstance().getCurrentUser() == null){
+            menu.getItem(1).setEnabled(false);
+            menu.getItem(1).setVisible(false);
+        }
         return super.onPrepareOptionsMenu(menu);
 
     }
@@ -166,14 +172,8 @@ public class NoticeList extends Activity {
         int id = item.getItemId();
         if (id == R.id.logout) {
 
-
-            if (session.isLoggedIn()){
-                db.deleteUsers();
-            }
-            session.setLogin(false);
-            session.setAdmin(false);
-            // Launching the login activity
-            Intent intent = new Intent(getApplicationContext(), login.class);
+           FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
         }
@@ -186,16 +186,6 @@ public class NoticeList extends Activity {
         return true;
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            this.finish();
-            System.exit(0);
-            return true;
-        }
-        return false;
-    }
+
 
 }
