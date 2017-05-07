@@ -68,7 +68,7 @@ public class Notification extends FirebaseMessagingService {
     }
 
     private void sendNotification(String title, String message, String timestamp) {
-        Intent i = new Intent(getApplicationContext(),splash.class);
+        Intent i = new Intent(getApplicationContext(),Start.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent p = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext())
