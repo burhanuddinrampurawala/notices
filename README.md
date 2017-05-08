@@ -1,3 +1,4 @@
+
 # NOTICES  
 
 Version: 2.0  
@@ -47,3 +48,11 @@ All notices just a tap away.
  - Editing and Deleting
  - Uploading documents and pdfs
  ```
+  ___
+![add](https://cloud.githubusercontent.com/assets/20016255/25801839/25ea6588-340d-11e7-9817-e0708fea34a7.png)
+ ___
+![expandable list](https://cloud.githubusercontent.com/assets/20016255/25801846/2c8b2094-340d-11e7-8c40-cfb6e2239742.png)
+ ___
+![login](https://cloud.githubusercontent.com/assets/20016255/25801848/301dc414-340d-11e7-91a4-56b7be6a518b.png)
+ ___
+![navigation drawer](https://cloud.githubusercontent.com/assets/20016255/25801850/32efd3a8-340d-11e7-9eec-b1195ff10914.png)
