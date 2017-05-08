@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -51,26 +52,74 @@ public class Start extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        if(FirebaseAuth.getInstance().getCurrentUser() == null)
+            navigationView.getMenu().findItem(R.id.session).setTitle("Login");
+
+        else
+            navigationView.getMenu().findItem(R.id.session).setTitle("Logout");
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment welcome = new Welcome();
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,welcome).commit();
+            }
+        });
+    }
+
+
+    @Override
+    protected void onResume() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
             navigationView.getMenu().findItem(R.id.session).setTitle("Login");
         }
         else
             navigationView.getMenu().findItem(R.id.session).setTitle("Logout");
-
+        super.onResume();
     }
 
     @Override
     public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            Log.i("notice", String.valueOf(getFragmentManager().getBackStackEntryCount()));
-            getFragmentManager().popBackStack();
-        } else {
+       else if (count >0) {
+
+            if (getTitle() == "Welcome") {
+                finish();
+                System.exit(0);
+            }
+            else {
+                Log.i("notice", String.valueOf(getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1)));
+                int j = 0;
+                String title = "";
+                String stack = String.valueOf(getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1));
+                char[] ch = stack.toCharArray();
+                for (int i = 0; i < stack.length(); i++) {
+                    if (ch[i] == '#') {
+                        j = i + 3;
+                        break;
+                    }
+                }
+                for (int i = j; i < stack.length() - 1; i++) {
+                    title = title + ch[i];
+                }
+                if (title == "") {
+
+                    Fragment welcome = new Welcome();
+                    Log.i("notice","welcome");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, welcome).commit();
+                    setTitle("Welcome");
+                } else
+                    setTitle(title);
+                getSupportFragmentManager().popBackStack();
+        }
+       }
+        else {
             super.onBackPressed();
         }
     }
@@ -91,17 +140,19 @@ public class Start extends AppCompatActivity
         if (id == R.id.fe) {
             bundle.putString("year", "First Year");
             fragmentBranch.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().addToBackStack("Branch").replace(R.id.mainFragment, fragmentBranch).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentBranch).addToBackStack("Welcome").commit();
         } else if (id == R.id.se) {
             bundle.putString("year", "Second Year");
-            getSupportFragmentManager().beginTransaction().addToBackStack("Branch").replace(R.id.mainFragment, fragmentBranch).commit();
+            fragmentBranch.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentBranch).addToBackStack("Welcome").commit();
         } else if (id == R.id.te) {
             bundle.putString("year", "Third Year");
             fragmentBranch.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().addToBackStack("Branch").replace(R.id.mainFragment, fragmentBranch).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentBranch).addToBackStack("Welcome").commit();
         } else if (id == R.id.be) {
             bundle.putString("year", "Fourth Year");
-            getSupportFragmentManager().beginTransaction().addToBackStack("Branch").replace(R.id.mainFragment, fragmentBranch).commit();
+            fragmentBranch.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentBranch).addToBackStack("Welcome").commit();
 
         } else if (id == R.id.session) {
             if (item.getTitle() == "Login") {
@@ -122,7 +173,7 @@ public class Start extends AppCompatActivity
 //                        }
 //                    });
                 if (FirebaseAuth.getInstance().getCurrentUser() == null)
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentlogin).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentlogin).addToBackStack(null).commit();
                 else
                     item.setTitle("Logout");
 
@@ -220,7 +271,7 @@ public class Start extends AppCompatActivity
 
         if (id == R.id.add) {
             Fragment fragmentadd = new Add();
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,fragmentadd).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,fragmentadd).addToBackStack(null).commit();
         }
 
         return true;

@@ -49,6 +49,7 @@ public class Display extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_display, container, false);
+        getActivity().setTitle(branch);
         storage = FirebaseStorage.getInstance();
         descriptiontext = (TextView) view.findViewById(R.id.descriptionText);
         titletext = (TextView) view.findViewById(R.id.titleText);
@@ -66,7 +67,7 @@ public class Display extends Fragment {
                             .child("description").getValue(String.class);
                     descriptiontext.setText(description);
                     titletext.setText(title);
-                    storage.getReference("images/" + title).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    storage.getReference("images/" + description).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             if(uri != null){

@@ -68,10 +68,11 @@ public class Branch extends Fragment {
                 bundle.putString("title", listHash.get(header[groupPosition]).get(childPosition));
                 Log.i("notice",bundle.toString());
                 displayfragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.mainFragment,displayfragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.mainFragment,displayfragment).addToBackStack(year).commit();
                 return true;
             }
         });
+        registerForContextMenu(listView);
         return view;
     }
 
@@ -96,11 +97,8 @@ public class Branch extends Fragment {
                         for(DataSnapshot data : d){
                             list.add(data.getKey());
                         }
-                        Log.i("notice",list.toString());
                         listHash.put(header[i], list);
                     }
-                    Log.i("notice",listHash.toString());
-                    Log.i("notice",listDataHeader.toString());
 
                 }
 

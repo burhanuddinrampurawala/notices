@@ -211,7 +211,6 @@ public class Add extends Fragment {
                                     focusview = descriptionText;
                                 }
                                 else {
-                                        ref.child(year).child(branch).setValue(title);
                                         ref.child(year).child(branch).child(title).child("description").setValue(description);
                                         displayimage.setDrawingCacheEnabled(true);
                                         displayimage.buildDrawingCache();
@@ -221,7 +220,7 @@ public class Add extends Fragment {
                                         {
                                             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                                             byte[] data = baos.toByteArray();
-                                            StorageReference images = storage.getReference("images/"+ title);
+                                            StorageReference images = storage.getReference("images/"+ description);
                                             UploadTask uploadTask = images.putBytes(data);
                                             uploadTask.addOnFailureListener(new OnFailureListener() {
                                                 @Override
