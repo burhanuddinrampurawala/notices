@@ -43,6 +43,5 @@ All notices just a tap away.
  ## BUGS
  ```
  - Editing and Deleting
- - Uploading image from Camera
  - Uploading documents and pdfs
  ```
