@@ -1,6 +1,6 @@
 # NOTICES  
 
-Version: 1.0  
+Version: 2.0  
 Modifier: Burhanuddin rampurawala  
 Date: 10/10/2016  
 
@@ -20,40 +20,21 @@ Date: 10/10/2016
   only.  
 
 
-###It has two types of login:  
-  *	Admin  
-  *	Student  
 
-  ####Admin (Faculty) can add, delete and edit notices.    
-  ####Student can only go through the notice and its contents.  
- ___
- 
-##LANGUAGES  
-
-   *	Java  
-   *	Xml  
-   *	Php  
-   *	Mysql  
-   
- ___
  
 ##KEY FEATURES 
-
-   *	JSON parsing  
-   *	Session managing  
-   *	Hiding add, delete and edit features from the student  
-   *	Volley  
-   *	Singleton 
-   *  Notifications   
+  *fragments
+  *Firebase Realtime database
+  *Firebase Storage
+  *Firebase Auth
    
  ___
  
 ##FUTURE MODIFICATIONS 
 
-   *	Realtime Database  
-   *	Forgot password  
-   *	Edit/Update student data
-   *  Auth  
+   *email verification  
+   *Notifications
+   *Forgot password
    
  ___ 
 
