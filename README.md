@@ -35,6 +35,8 @@ All notices just a tap away.
 - email verification  
 - Notifications
 - Forgot password
+- Increasing quality of image (camera)
+- touch the image for full screen and zoom in and zoom out
 - UI
 ```
  ___ 
