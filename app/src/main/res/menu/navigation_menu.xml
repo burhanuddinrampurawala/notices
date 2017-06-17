@@ -16,8 +16,7 @@
     <item
         android:id="@+id/te"
         android:title="Third Year"
-        android:icon="@mipmap/ic_folder_black_24dp"
-        app:menu="@menu/contextmenu">
+        android:icon="@mipmap/ic_folder_black_24dp">
 
     </item>
     <item

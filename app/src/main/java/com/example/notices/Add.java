@@ -48,6 +48,9 @@ import java.io.IOException;
 
 public class Add extends Fragment {
 
+    private  String oldTitle;
+    private  String oldYear;
+    private  String oldBranch;
     private String branch;
     private String year;
     private  String edit = null;
@@ -70,6 +73,7 @@ public class Add extends Fragment {
     private TextView error;
     View focusview;
     View view;
+    String oldDescription;
 
     public Add() {
         // Required empty public constructor
@@ -82,7 +86,10 @@ public class Add extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             edit = getArguments().getString("edit");
-            id = getArguments().getInt("id");
+            oldYear = getArguments().getString("year");
+            oldBranch = getArguments().getString("branch");
+            oldTitle = getArguments().getString("title");
+            oldDescription = getArguments().getString("description");
             getActivity().setTitle("Edit");
         }
         else {
@@ -110,20 +117,22 @@ public class Add extends Fragment {
 
         dropDownYear();
         dropDownBranch();
+        add = (Button) view.findViewById(R.id.addButton);
 
         pDialog = new ProgressDialog(getContext());
         pDialog.setCancelable(false);
         titleText = (EditText) view.findViewById(R.id.title);
         descriptionText = (EditText) view.findViewById(R.id.description);
-        add = (Button) view.findViewById(R.id.addButton);
         camera = (Button) view.findViewById(R.id.camera);
         gallery = (Button) view.findViewById(R.id.gallery);
         file = (Button) view.findViewById(R.id.file);
+        if(edit == "edit")
+            add.setText("Edit");
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(result){
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                     startActivityForResult(intent, 1);
                 }
             }
@@ -147,108 +156,75 @@ public class Add extends Fragment {
 
             }
         });
-        if (edit == "edit") {
-            add.setText("Edit");
-            i = 1;
-        }
         add.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        if (i == 1) {
-                            if(FirebaseAuth.getInstance().getCurrentUser() != null){
-                                title = titleText.getText().toString();
-                                description = descriptionText.getText().toString();
-                                final DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference();
-                                ValueEventListener postListener = new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                        // Get Post object and use the values to update the UI
-                                        Iterable<DataSnapshot> a = dataSnapshot.getChildren();
-                                        int j = 0;
-                                        for (DataSnapshot m : a){
-                                            if(id == j){
-                                                String uid = m.getKey();
-                                                mPostReference.child(uid).child("year").setValue(year);
-                                                mPostReference.child(uid).child("branch").setValue(branch);
-                                                mPostReference.child(uid).child("title").setValue(title);
-                                                mPostReference.child(uid).child("description").setValue(description);
-                                                break;
-                                            }
-                                            j++;
-                                        }
-
-
-                                    }
-
-                                    @Override
-                                    public void onCancelled(DatabaseError databaseError) {
-                                        // Getting Post failed, log a message
-                                        Log.w("" ,"loadPost:onCancelled", databaseError.toException());
-                                        // ...
-                                    }
-
-                                };
-                                mPostReference.addValueEventListener(postListener);
-                                jump();
-                            }
-                            else{
-                                Toast.makeText(getContext(),"yow will have to Sign in first",Toast.LENGTH_SHORT);
-                            }
-
+                        if (edit == "edit") {
+                            add(1);
                         }
                         else{
-                            if(FirebaseAuth.getInstance().getCurrentUser() != null){
-                                title = titleText.getText().toString();
-                                description = descriptionText.getText().toString();
-                                if(title.length() == 0) {
-                                    titleText.setError("Enter title");
-                                    focusview = titleText;
-                                }
-                                else if (description.length() == 0){
-                                    descriptionText.setError("Enter Description");
-                                    focusview = descriptionText;
-                                }
-                                else {
-                                        ref.child(year).child(branch).child(title).child("description").setValue(description);
-                                        displayimage.setDrawingCacheEnabled(true);
-                                        displayimage.buildDrawingCache();
-                                        Bitmap bitmap = displayimage.getDrawingCache();
-                                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                                        if(bitmap != null)
-                                        {
-                                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                                            byte[] data = baos.toByteArray();
-                                            StorageReference images = storage.getReference("images/"+ description);
-                                            UploadTask uploadTask = images.putBytes(data);
-                                            uploadTask.addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception exception) {
-                                                    // Handle unsuccessful uploads
-                                                }
-                                            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                                @Override
-                                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                    // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                                                    //  Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                                                }
-                                            });
-                                        }
-                                        jump();
-                                }
+                            add(0);
 
-
-                            }
-                            else{
-                                Toast.makeText(getContext(),"yow will have to Sign in first",Toast.LENGTH_LONG);
-                            }
                         }
                     }
 
                 }
         );
         return view;
+    }
+    private void add(int j){
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            title = titleText.getText().toString();
+            description = descriptionText.getText().toString();
+            if(title.length() == 0) {
+                titleText.setError("Enter title");
+                titleText.requestFocus();
+            }
+            else if (description.length() == 0){
+                descriptionText.setError("Enter Description");
+                descriptionText.requestFocus();
+            }
+            else {
+                ref.child(year).child(branch).child(title).child("description").setValue(description);
+                displayimage.setDrawingCacheEnabled(true);
+                displayimage.buildDrawingCache();
+                Bitmap bitmap = displayimage.getDrawingCache();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                if(bitmap != null)
+                {
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] data = baos.toByteArray();
+                    StorageReference images = storage.getReference("images/"+ description);
+                    UploadTask uploadTask = images.putBytes(data);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle unsuccessful uploads
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                            //  Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        }
+                    });
+                }
+                if(j == 1){
+                    DeleteNotice d = new DeleteNotice();
+                    d.delete(oldYear,oldBranch,oldTitle,oldDescription);
+                    jump();
+                }
+                else
+                    jump();
+            }
+
+
+        }
+        else{
+            Toast.makeText(getContext(),"yow will have to Sign in first",Toast.LENGTH_LONG);
+        }
     }
     private void jump(){
         Fragment fragment = new Branch();

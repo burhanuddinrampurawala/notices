@@ -19,56 +19,21 @@ import com.google.firebase.storage.FirebaseStorage;
 /**
  * Created by admin on 24/09/2016.
  */
-public class DeleteNotice extends Activity {
-    private ProgressDialog pDialog;
-    private Context context;
-    FirebaseStorage storage;
-    public DeleteNotice (int id, Context context){
-        pDialog = new ProgressDialog(context);
-        pDialog.setCancelable(false);
-        this.context = context;
-        delete (id);
-    }
-    private void delete(final int id) {
-        final DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference();
-        storage = FirebaseStorage.getInstance();
-        ValueEventListener postListener = new ValueEventListener() {
+public class DeleteNotice {
+    public void delete(final String year, final String branch, final String title, final String description) {
+        FirebaseDatabase.getInstance().getReference().child(year).child(branch).child(title).removeValue();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storage.getReference("images/" + description).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                Iterable<DataSnapshot> a = dataSnapshot.getChildren();
-                int j = 0;
-                for (DataSnapshot m : a) {
-                    if (id == j) {
-                       final String uid = m.getKey();
-                        String s = m.child("title").getValue(String.class);
-                        Log.i("notice",s);
-                        storage.getReference("images/" + s).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
+            public void onSuccess(Void aVoid) {
 
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                // Uh-oh, an error occurred!
-                            }
-                        });
-                        mPostReference.child(uid).removeValue();
-                        break;
-                    }
-                    j++;
-                }
             }
-
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("notice", "loadPost:onCancelled", databaseError.toException());
-                // ...
+            public void onFailure(@NonNull Exception exception) {
+                // Uh-oh, an error occurred!
             }
+        });
 
-        };
-        mPostReference.addValueEventListener(postListener);
     }
 }

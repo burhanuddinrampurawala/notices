@@ -98,18 +98,8 @@ public class Start extends AppCompatActivity
                 int j = 0;
                 String title = "";
                 String stack = String.valueOf(getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1));
-                char[] ch = stack.toCharArray();
-                for (int i = 0; i < stack.length(); i++) {
-                    if (ch[i] == '#') {
-                        j = i + 3;
-                        break;
-                    }
-                }
-                for (int i = j; i < stack.length() - 1; i++) {
-                    title = title + ch[i];
-                }
+                title = title (stack);
                 if (title == "") {
-
                     Fragment welcome = new Welcome();
                     Log.i("notice","welcome");
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, welcome).commit();
@@ -125,7 +115,21 @@ public class Start extends AppCompatActivity
     }
 
 
-
+    public String title(String stack){
+        int j=0;
+        String title = "";
+        char[] ch = stack.toCharArray();
+        for (int i = 0; i < stack.length(); i++) {
+            if (ch[i] == '#') {
+                j = i + 3;
+                break;
+            }
+        }
+        for (int i = j; i < stack.length() - 1; i++) {
+            title = title + ch[i];
+        }
+        return title;
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -190,61 +194,6 @@ public class Start extends AppCompatActivity
             return true;
 
 
-    }
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-
-        if (FirebaseAuth.getInstance().getCurrentUser() != null){
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.contextmenu,menu);
-        }
-    }
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final int i = info.position;
-        switch (item.getItemId()) {
-            case R.id.edit:
-                Fragment fragmentadd = new Add();
-                Bundle bundle = new Bundle();
-                bundle.putString("edit","edit");
-                bundle.putInt("id",i);
-                fragmentadd.setArguments(bundle);
-                FragmentManager fm = getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                fm.popBackStack();
-                ft.remove(fm.findFragmentById(R.id.mainFragment)).add(R.id.mainFragment,fragmentadd);
-                ft.commit();
-                return true;
-            case R.id.delete:
-                //if(FirebaseAuth.getInstance().getCurrentUser() != null){
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        delete = new DeleteNotice(i,Start.this);
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.setTitle("Delete Notice");
-                dialog.setMessage("Are you sure you want to delete this notice?");
-                dialog.show();
-                return true;
-            //}
-
-//                else{
-//                    Toast.makeText(getApplicationContext(),"yow will have to Sign in first",Toast.LENGTH_SHORT);
-//                    return false;
-//                }
-
-            default:
-                return super.onContextItemSelected(item);
-        }
     }
 
     @Override

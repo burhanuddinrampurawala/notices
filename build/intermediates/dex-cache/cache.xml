@@ -3,12 +3,39 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\c250f8d03310d5dd0087a4b7e5777f1867d97288\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44098e691b36776973374ac03afe0225b17f8a74">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_801011936d42f092108a803d35dab8efe03f3c3f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\mega\Programs\android\Notices\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9b9f8abe997c54334ea421fd5eba18a20986671c">
+        sha1="792dd47c06d7d2e8fa54e5055c9a43dbef5939e6">
         <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5e3cfc1058da07bc0a4be5683135d37ceefb34e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\551c811f7beae2ce4c2b8e48c09ce27a68445cb5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6eab3930ad662ecb170f9e8c1aab5fd005a6a609\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\db1a6174ba34cc0707fe00ff38e00b8dc8485850\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5bb85953c50a1f560ad73d154fecfe0d3368e167\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -16,8 +43,98 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b2136af1ffa10764b6082090fa590101530ea9ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\95cd709328045b22a33e13b7f0d70a60479832a0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4f5d3ec6e91c141a90c2130b4ece783c8e5c1188\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\42e00fd9237c6b28161019f57b945b814f03faa7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fb66411568b34b32e162f6ceb4f7a796fdbb1db0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\fe60bd87bee4db3484ad8fe3033baafecbf39dbd\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_86f9dc388f4ee4f315e317d3f8d31e3488d74b1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\a7c60ca53c5aaa980f5eff6de5bbeaef880b971e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_27e29770dc822da9af16f7f1de5bed4d4036da40\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\73e70b14fdd7d74c57aa86ce22510a87b1f5cf7e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ba601abd2f1a8034643c98e875ddcdb2c640223a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\951d4ef9e2f594f0ed56bf67bcbe4cfa6e84cf84\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_532b009cf22bf6f774d463de488f83f4f2db4239\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\05964736e3603ceaa2be2e7aff0b23093d128737\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_811859033ae6eabf53e578bd2ae7484e461b2d5a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\a8c922dec29543d2bf514186a468c423ae11d1ca\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f9bf0369d1ec2620742bc0ff66408d203a6f5413\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\e98a0fbaaa52661e82ee6f5e8b9a97ee496c5220\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cf6170e321b6f96f33b38832fad7b04f48814ff8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\burha\.android\build-cache\42f0dcf35cee64c1cddaf2cce40e4c753ee86432\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="C:\mega\Programs\android\Notices\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1ce4b0da3d89df99f15ebf5ede3d653374766d2f\classes.dex" />
     </item>
 
 </items>

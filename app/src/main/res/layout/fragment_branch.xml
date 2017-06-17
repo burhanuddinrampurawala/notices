@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.notices.Branch"
-    android:background="#ffffff">
+    android:background="#ECF0F1">
 
 
     <ExpandableListView
             android:id="@+id/branchListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        android:layout_margin="10sp"/>
+            android:layout_margin="10sp"/>
 </FrameLayout>
