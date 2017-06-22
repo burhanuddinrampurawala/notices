@@ -215,6 +215,9 @@ public class Login extends Fragment {
     }
     private void jump(){
         Fragment fragment = new Welcome();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("Loggedin",true);
+        fragment.setArguments(bundle);
         getFragmentManager().beginTransaction().replace(R.id.mainFragment,fragment).commit();
     }
 

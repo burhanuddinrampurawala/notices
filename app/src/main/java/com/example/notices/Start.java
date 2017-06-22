@@ -3,10 +3,12 @@ package com.example.notices;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -34,14 +36,21 @@ import java.util.zip.Inflater;
 
 public class Start extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int MY_PERMISSIONS_REQUEST_CAMERA = 100 ;
     public DeleteNotice delete;
+    MenuItem add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        add = (MenuItem)findViewById(R.id.add);
 
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{android.Manifest.permission.CAMERA},
+                MY_PERMISSIONS_REQUEST_CAMERA);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -176,10 +185,14 @@ public class Start extends AppCompatActivity
 //                            return super.getCurrentUser();
 //                        }
 //                    });
-                if (FirebaseAuth.getInstance().getCurrentUser() == null)
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, fragmentlogin).addToBackStack(null).commit();
-                else
+                }
+                else{
                     item.setTitle("Logout");
+                    Intent i = new Intent(Start.this,Start.class);
+                    startActivity(i);
+                }
 
             } else {
                 Log.i("notice", FirebaseAuth.getInstance().getCurrentUser().toString());

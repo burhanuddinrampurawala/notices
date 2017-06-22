@@ -132,7 +132,7 @@ public class Add extends Fragment {
             @Override
             public void onClick(View v) {
                 if(result){
-                    Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(intent, 1);
                 }
             }
