@@ -40,12 +40,10 @@ All notices just a tap away.
 - touch the image for full screen and zoom in and zoom out
 - UI
 ```
- ___ 
- # **_There are bugs which are not solved due to my exams_**
+
  ___
  ## BUGS
  ```
- - Editing and Deleting
  - Uploading documents and pdfs
  ```
   ___
